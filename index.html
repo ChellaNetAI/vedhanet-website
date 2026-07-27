@@ -634,13 +634,11 @@
           </div>
         </div>
 
-        <form class="form-card reveal" action="https://formsubmit.co/info@vedhanetacademy.com" method="POST">
+        <form class="form-card reveal" name="demo-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <h3>Book my free demo</h3>
           <p class="sub">We'll get back within 24 hours.</p>
-          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="_subject" value="New demo request — VedhaNet Academy website">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="form-name" value="demo-signup">
+          <input type="text" name="bot-field" class="honeypot" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
             <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="Phone" required></div>
@@ -657,7 +655,7 @@
           </div>
           <div class="field"><label>Message (optional)</label><textarea name="Message" placeholder="Anything specific you'd like us to know?"></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%">Book My Free Demo →</button>
-          <p class="form-note">By submitting, you agree to be contacted about VedhaNet Academy training. First submission on a new site requires a one-time email confirmation from FormSubmit.</p>
+          <p class="form-note">By submitting, you agree to be contacted about VedhaNet Academy training.</p>
         </form>
       </div>
     </div>
