@@ -135,12 +135,16 @@
   .course-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow-sm)}
   .course-card .icon{font-size:24px;margin-bottom:10px}
   .course-card h4{font-size:16.5px;margin-bottom:2px}
-  .course-card .subt{color:var(--pink-dark);font-size:12px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.03em}
+  .course-card .subt{color:var(--pink-dark);font-size:12px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
   .course-card ul{font-size:13.2px;color:#4A4560}
   .course-card li{padding:4px 0;padding-left:16px;position:relative}
   .course-card li::before{content:"▸";position:absolute;left:0;color:var(--purple);font-weight:800}
-  .extra-topics{max-height:0;overflow:hidden;transition:max-height .35s ease}
-  .course-card.open .extra-topics{max-height:400px}
+  .topic-count{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;color:var(--purple-dark);background:rgba(109,91,208,.09);border:1px solid rgba(109,91,208,.2);border-radius:6px;padding:3px 8px;margin-bottom:14px;letter-spacing:.02em}
+  .mod{margin-bottom:14px}
+  .mod-title{display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--purple-dark);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;padding-bottom:5px;border-bottom:1px dashed rgba(109,91,208,.25)}
+  .mod-title b{color:var(--pink);font-weight:700}
+  .extra-topics{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .course-card.open .extra-topics{max-height:2200px}
   .toggle-btn{margin-top:12px;background:none;border:1px solid var(--line);color:var(--purple-dark);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
   .toggle-btn:hover{border-color:var(--purple)}
 
@@ -390,7 +394,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">What We Teach</span>
         <h2>Two subjects. Full depth. No filler.</h2>
-        <p>We dropped every unrelated topic so every hour of training goes toward F5 BIG-IP and the automation skills that make you faster and more valuable around it.</p>
+        <p>We dropped every unrelated topic so every hour of training goes toward F5 BIG-IP and the automation skills that make you faster and more valuable around it. <strong>114 topics across 20 modules</strong> — expand any track below to see the full syllabus.</p>
       </div>
 
       <div class="pillars-wrap">
@@ -421,32 +425,116 @@
           <div class="icon">🔀</div>
           <h4>F5 BIG-IP LTM</h4>
           <div class="subt">Local Traffic Manager</div>
-          <ul><li>Architecture</li><li>Virtual servers</li><li>Pools &amp; nodes</li><li>Health monitors</li><li>Profiles &amp; SNAT</li></ul>
-          <div class="extra-topics"><ul><li>Persistence</li><li>SSL offloading</li><li>OneConnect</li><li>iRules basics</li><li>HA configuration</li><li>Troubleshooting</li></ul></div>
+          <span class="topic-count">34 topics · 5 modules</span>
+          <div class="mod">
+            <div class="mod-title"><b>01</b> Platform &amp; Foundations</div>
+            <ul><li>TMOS architecture &amp; TMM</li><li>Hardware vs BIG-IP VE</li><li>Initial setup &amp; licensing</li><li>VLANs, self IPs &amp; floating IPs</li><li>Routing &amp; traffic flow</li></ul>
+          </div>
+          <div class="extra-topics">
+            <div class="mod">
+              <div class="mod-title"><b>02</b> Core Traffic Objects</div>
+              <ul><li>Nodes, pools &amp; members</li><li>Virtual server types</li><li>Load balancing methods</li><li>Priority group activation</li><li>Health monitors — HTTP/TCP/ICMP</li><li>Custom &amp; external monitors</li><li>Persistence profiles</li><li>SNAT, SNAT pools &amp; Automap</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>03</b> SSL &amp; Optimization</div>
+              <ul><li>SSL offload / bridging / passthrough</li><li>Client &amp; Server SSL profiles</li><li>Certificate &amp; key management</li><li>SNI — multi-cert VIPs</li><li>Certificate chain troubleshooting</li><li>OneConnect multiplexing</li><li>Compression &amp; caching</li><li>TCP profile tuning</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>04</b> iRules &amp; Traffic Policies</div>
+              <ul><li>Tcl syntax &amp; iRule event model</li><li>HTTP_REQUEST / HTTP_RESPONSE</li><li>Redirects &amp; header insertion</li><li>URL-based routing</li><li>Local Traffic Policies vs iRules</li><li>iRule logging &amp; debugging</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>05</b> HA, Ops &amp; Troubleshooting</div>
+              <ul><li>Active/Standby &amp; device groups</li><li>Config sync &amp; device trust</li><li>Failover testing &amp; drills</li><li>TMSH essential commands</li><li>tcpdump on BIG-IP</li><li>/var/log/ltm analysis</li><li>QKView &amp; iHealth</li></ul>
+            </div>
+          </div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🌐</div>
           <h4>F5 BIG-IP GTM / DNS</h4>
           <div class="subt">Global Traffic Manager</div>
-          <ul><li>DNS load balancing</li><li>Wide-IPs</li><li>Pools &amp; data centers</li><li>Monitors</li><li>Topology LB</li></ul>
-          <div class="extra-topics"><ul><li>iQuery &amp; sync groups</li><li>Global failover</li><li>Disaster recovery</li><li>DNS troubleshooting</li></ul></div>
+          <span class="topic-count">26 topics · 5 modules</span>
+          <div class="mod">
+            <div class="mod-title"><b>01</b> DNS &amp; GSLB Foundations</div>
+            <ul><li>DNS resolution refresher</li><li>Why GSLB exists</li><li>BIG-IP DNS architecture</li><li>Listeners &amp; DNS profiles</li><li>Data centers &amp; servers</li></ul>
+          </div>
+          <div class="extra-topics">
+            <div class="mod">
+              <div class="mod-title"><b>02</b> Wide-IPs &amp; Pools</div>
+              <ul><li>Wide-IP configuration</li><li>GTM pools &amp; members</li><li>Pool LB methods</li><li>Fallback &amp; alternate methods</li><li>Virtual server discovery</li><li>Wide-IP persistence</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>03</b> Monitoring &amp; Sync</div>
+              <ul><li>GTM health monitors</li><li>iQuery &amp; big3d</li><li>Sync groups &amp; config sync</li><li>Availability logic</li><li>Probe assignment</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>04</b> Topology &amp; Availability</div>
+              <ul><li>Topology records &amp; regions</li><li>Geolocation-based LB</li><li>Global failover design</li><li>Active-Active &amp; DR patterns</li><li>Manual resume &amp; limits</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>05</b> Troubleshooting</div>
+              <ul><li>dig / nslookup verification</li><li>GTM log analysis</li><li>iQuery connectivity issues</li><li>Wide-IP not resolving — RCA</li><li>Sync failure scenarios</li></ul>
+            </div>
+          </div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🔑</div>
           <h4>F5 BIG-IP APM</h4>
           <div class="subt">Access Policy Manager</div>
-          <ul><li>Access policies</li><li>SSO &amp; authentication</li><li>AD / LDAP / SAML</li><li>MFA basics</li></ul>
-          <div class="extra-topics"><ul><li>VPN &amp; portal access</li><li>Per-request policy branching</li><li>Endpoint inspection</li><li>Troubleshooting</li></ul></div>
+          <span class="topic-count">26 topics · 5 modules</span>
+          <div class="mod">
+            <div class="mod-title"><b>01</b> Access Foundations</div>
+            <ul><li>APM architecture &amp; licensing</li><li>Access profiles &amp; policies</li><li>Visual Policy Editor (VPE)</li><li>Sessions &amp; session variables</li><li>Connectivity profiles</li></ul>
+          </div>
+          <div class="extra-topics">
+            <div class="mod">
+              <div class="mod-title"><b>02</b> Authentication &amp; SSO</div>
+              <ul><li>AD / LDAP authentication</li><li>RADIUS &amp; certificate auth</li><li>SAML IdP &amp; SP configuration</li><li>Kerberos &amp; NTLM SSO</li><li>OAuth / OIDC basics</li><li>MFA integration</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>03</b> Access Methods</div>
+              <ul><li>Network Access (SSL VPN)</li><li>Portal Access &amp; webtops</li><li>Application tunnels</li><li>Per-app VPN</li><li>Edge Client deployment</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>04</b> Policy Logic &amp; Security</div>
+              <ul><li>Per-request policies</li><li>Policy branching &amp; macros</li><li>Endpoint inspection &amp; posture</li><li>Access control lists</li><li>Session timeouts &amp; limits</li><li>Step-up authentication</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>05</b> Troubleshooting</div>
+              <ul><li>Session reports &amp; logs</li><li>VPE flow debugging</li><li>/var/log/apm analysis</li><li>Common SSO failures</li></ul>
+            </div>
+          </div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🛡️</div>
           <h4>F5 BIG-IP ASM / AWAF</h4>
           <div class="subt">Advanced WAF</div>
-          <ul><li>Security policies</li><li>Attack signatures</li><li>Learning mode</li><li>Bot defense</li></ul>
-          <div class="extra-topics"><ul><li>OWASP Top 10 mapping</li><li>Brute-force &amp; DoS protection</li><li>Compliance templates</li><li>Logging &amp; reporting</li></ul></div>
+          <span class="topic-count">28 topics · 5 modules</span>
+          <div class="mod">
+            <div class="mod-title"><b>01</b> WAF Foundations</div>
+            <ul><li>L7 threat model — why WAF</li><li>ASM vs Advanced WAF licensing</li><li>Blocking vs transparent mode</li><li>Security policy types</li><li>Policy templates</li></ul>
+          </div>
+          <div class="extra-topics">
+            <div class="mod">
+              <div class="mod-title"><b>02</b> Policy Building</div>
+              <ul><li>Automatic vs manual building</li><li>Learning mode &amp; suggestions</li><li>URLs, parameters &amp; file types</li><li>Attack signatures &amp; signature sets</li><li>Staging &amp; enforcement readiness</li><li>Policy tuning workflow</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>03</b> Attack Protection</div>
+              <ul><li>OWASP Top 10 mapping</li><li>SQL injection &amp; XSS protection</li><li>CSRF protection</li><li>Brute-force protection</li><li>L7 DoS profiles</li><li>Bot defense &amp; device ID</li><li>IP intelligence</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>04</b> Advanced Controls</div>
+              <ul><li>Data Guard &amp; response scrubbing</li><li>Session tracking &amp; user ID</li><li>Login page enforcement</li><li>JSON / XML / API security</li><li>Cookie protection</li><li>Violation ratings &amp; thresholds</li></ul>
+            </div>
+            <div class="mod">
+              <div class="mod-title"><b>05</b> Operations</div>
+              <ul><li>Event logs &amp; request analysis</li><li>False-positive tuning</li><li>Reporting &amp; PCI compliance</li><li>Policy export / import &amp; versioning</li></ul>
+            </div>
+          </div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
       </div>
