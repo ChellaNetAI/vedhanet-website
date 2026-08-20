@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VedhaNet Academy — F5 BIG-IP &amp; Network Automation Training</title>
-<meta name="description" content="F5 BIG-IP (LTM, GTM/DNS, APM, ASM/AWAF) and Network Automation training with a free live lab simulator, real BIG-IP VE labs, certification prep, interview prep and job updates. Coimbatore, India · Online worldwide.">
+<meta name="description" content="F5 BIG-IP (LTM, GTM/DNS, APM, ASM/AWAF) and Network Automation training with three free live simulators (traffic, DNS, WAF), real BIG-IP VE labs, certification prep, interview prep and job updates. Coimbatore, India · Online worldwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -113,6 +113,15 @@
   .pulse-dot{filter:drop-shadow(0 0 4px currentColor)}
   .hero-card .foot-row{display:flex;justify-content:space-between;font-size:12px;color:#a79ee0;margin-top:14px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.14)}
   .hero-card-foot{margin-top:16px;display:flex;gap:10px}
+  .pk-cap{font-family:'JetBrains Mono';font-size:11.5px;line-height:1.5;color:#c6bfe8;margin-top:12px;min-height:34px}
+  .pk-cap b{color:#fff;font-weight:600}
+  .pk-cap.warn b{color:#ffb3c4}
+  .pk-cap.warn{color:#ff9db3}
+  .pk-dots{display:flex;gap:5px;margin-top:10px}
+  .pk-dots i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.14);transition:background .3s ease}
+  .pk-dots i.on{background:linear-gradient(90deg,#22B8CF,#8E7FE8,#EC4899)}
+  .pk-dots i.bad{background:linear-gradient(90deg,#F43F5E,#ff9db3)}
+  .hero-card .topo-svg{width:100%;height:auto;display:block}
   @media (max-width:940px){.hero-grid{grid-template-columns:1fr}.hero-card{order:-1}}
 
   .pillars-wrap{position:relative}
@@ -135,16 +144,12 @@
   .course-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow-sm)}
   .course-card .icon{font-size:24px;margin-bottom:10px}
   .course-card h4{font-size:16.5px;margin-bottom:2px}
-  .course-card .subt{color:var(--pink-dark);font-size:12px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
+  .course-card .subt{color:var(--pink-dark);font-size:12px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.03em}
   .course-card ul{font-size:13.2px;color:#4A4560}
   .course-card li{padding:4px 0;padding-left:16px;position:relative}
   .course-card li::before{content:"▸";position:absolute;left:0;color:var(--purple);font-weight:800}
-  .topic-count{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;color:var(--purple-dark);background:rgba(109,91,208,.09);border:1px solid rgba(109,91,208,.2);border-radius:6px;padding:3px 8px;margin-bottom:14px;letter-spacing:.02em}
-  .mod{margin-bottom:14px}
-  .mod-title{display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--purple-dark);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;padding-bottom:5px;border-bottom:1px dashed rgba(109,91,208,.25)}
-  .mod-title b{color:var(--pink);font-weight:700}
-  .extra-topics{max-height:0;overflow:hidden;transition:max-height .45s ease}
-  .course-card.open .extra-topics{max-height:2200px}
+  .extra-topics{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .course-card.open .extra-topics{max-height:400px}
   .toggle-btn{margin-top:12px;background:none;border:1px solid var(--line);color:var(--purple-dark);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
   .toggle-btn:hover{border-color:var(--purple)}
 
@@ -167,6 +172,60 @@
   .lab-mock .row{display:flex;justify-content:space-between;font-size:13px;color:#b9b0e0;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
   .lab-mock .row b{color:#fff}
   .scenario-chip{display:inline-block;background:rgba(255,255,255,.1);color:#f0ecff;font-size:11.5px;padding:5px 10px;border-radius:8px;margin:4px 6px 0 0;border:1px solid rgba(255,255,255,.1)}
+
+  /* ===== FREE SIMULATOR CARDS ===== */
+  .sim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:1000px){.sim-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:660px){.sim-grid{grid-template-columns:1fr}}
+  .sim-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s ease, box-shadow .2s ease}
+  .sim-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .sim-viz{position:relative;background:radial-gradient(120% 150% at 80% 0%, var(--dark-3), var(--dark) 65%);padding:14px 12px 10px;border-bottom:1px solid var(--line)}
+  .sim-viz svg{width:100%;height:auto;display:block}
+  .sim-free{position:absolute;top:12px;right:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono';font-size:10.5px;font-weight:600;letter-spacing:.1em;padding:5px 10px;border-radius:999px;color:#8df0b4;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.45)}
+  .sim-free i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:vnpulse 2s infinite}
+  @keyframes vnpulse{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+  .sim-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .sim-body .k{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.12em;color:var(--purple-dark);font-weight:600}
+  .sim-body h3{font-size:19px;margin:9px 0 8px}
+  .sim-hook{font-size:14px;color:var(--ink);font-weight:600;line-height:1.5}
+  .sim-list{margin:14px 0 20px;display:flex;flex-direction:column;gap:8px}
+  .sim-list li{display:flex;gap:9px;font-size:13.5px;color:var(--muted);line-height:1.45}
+  .sim-list li::before{content:"›";color:var(--pink);font-weight:800;line-height:1.35}
+  .sim-body .btn{margin-top:auto;width:100%}
+  .sim-note{text-align:center;margin-top:26px;font-family:'JetBrains Mono';font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+  .sim-note b{color:var(--purple-dark)}
+
+  /* ===== ENTERPRISE LAB STAGE ===== */
+  .vn-mesh{position:absolute;inset:0;opacity:.5;pointer-events:none}
+  .vn-stage{position:relative;z-index:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px 16px 12px}
+  .vn-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 6px 14px;flex-wrap:wrap}
+  .vn-tabs{display:flex;gap:8px;flex-wrap:wrap}
+  .vn-tab{font-family:'JetBrains Mono';font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:9px 15px;border-radius:10px;cursor:pointer;color:#b9b0e0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);transition:all .18s ease}
+  .vn-tab:hover{color:#fff;border-color:rgba(255,255,255,.32)}
+  .vn-tab[aria-selected="true"]{color:#fff;background:linear-gradient(135deg,rgba(109,91,208,.78),rgba(236,72,153,.6));border-color:transparent;box-shadow:0 0 22px rgba(109,91,208,.45)}
+  .vn-live{display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono';font-size:11.5px;color:#8df0b4;letter-spacing:.1em;text-transform:uppercase}
+  .vn-live i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:vnpulse 2s infinite}
+  .vn-canvas svg{width:100%;height:auto;display:block}
+  .vn-cap{font-size:13.5px;color:#c6bfe8;padding:6px 8px 0;max-width:760px}
+  .vn-cap b{color:#fff}
+  .vn-chips{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0 4px;padding:0 8px}
+  .vn-chip{font-family:'JetBrains Mono';font-size:11px;padding:5px 10px;border-radius:7px;color:#cfc7f2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+  .vn-chip.ai{color:#9be8f5;border-color:rgba(34,184,207,.4);background:rgba(34,184,207,.10)}
+  .vn-strip{margin-top:26px;display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+  .vn-strip span{font-family:'JetBrains Mono';font-size:11.5px;padding:7px 13px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--purple-dark)}
+
+  /* shared flow atoms */
+  .nbox{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.22)}
+  .nbox.ok{fill:rgba(34,197,94,.10);stroke:rgba(34,197,94,.45)}
+  .nbox.bad{fill:rgba(244,63,94,.10);stroke:rgba(244,63,94,.5)}
+  .nlbl{font-family:'JetBrains Mono';font-size:11px;fill:#e6e1f9}
+  .nsub{font-family:'Inter';font-size:9.5px;fill:#9d94c4}
+  .nbadge{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.06em}
+  .w-idle{stroke:rgba(255,255,255,.18);stroke-width:1.6;fill:none}
+  .w-hot{stroke:url(#vnGrad);stroke-width:2;fill:none;stroke-dasharray:5 7;animation:vndash 1.1s linear infinite}
+  .w-dead{stroke:var(--red);stroke-width:1.6;fill:none;stroke-dasharray:4 5;opacity:.55}
+  @keyframes vndash{to{stroke-dashoffset:-24}}
+  @media (prefers-reduced-motion:reduce){.w-hot,.sim-free i,.vn-live i{animation:none}}
 
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
   @media (max-width:940px){.cards3{grid-template-columns:1fr 1fr}}
@@ -203,6 +262,9 @@
   @media (max-width:900px){.trainer-grid{grid-template-columns:1fr}}
   .trainer-photo{position:relative;width:100%;aspect-ratio:1/1;max-width:300px;border-radius:24px;overflow:hidden;background:radial-gradient(120% 140% at 30% 10%, var(--dark-3), var(--dark) 70%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Space Grotesk';font-weight:800;font-size:58px;box-shadow:var(--glow-purple), var(--shadow-lg);border:1px solid rgba(255,255,255,.08)}
   .trainer-photo img{width:100%;height:100%;object-fit:cover}
+  .trainer-photo svg{width:100%;height:100%;display:block}
+  .trainer-photo.brand-badge{background:none;border-radius:50%;max-width:320px}
+  .trainer-photo.brand-badge::before,.trainer-photo.brand-badge::after{display:none}
   .trainer-photo::before,.trainer-photo::after{content:"";position:absolute;width:22px;height:22px;z-index:2}
   .trainer-photo::before{top:14px;left:14px;border-top:2px solid var(--pink);border-left:2px solid var(--pink)}
   .trainer-photo::after{bottom:14px;right:14px;border-bottom:2px solid var(--purple-light);border-right:2px solid var(--purple-light)}
@@ -267,7 +329,7 @@
 <div class="topbar">
   <div class="wrap">
     <div>
-      <a href="https://wa.me/919043214321" target="_blank" rel="noopener">📞 +91 90432 14321</a>
+      <a href="https://wa.me/919345718526" target="_blank" rel="noopener">📞 +91 93457 18526</a>
       <span class="sep hide-sm">|</span>
       <span class="hide-sm">Coimbatore, Tamil Nadu · Online worldwide</span>
     </div>
@@ -278,10 +340,11 @@
 <header class="nav" id="siteHeader">
   <div class="wrap">
     <nav>
-      <a href="#top" class="brand"><span class="mark"><img src="vedhanet-logo.png" alt="VedhaNet Academy logo"></span> VedhaNet Academy</a>
+      <a href="#top" class="brand"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VedhaNet Academy logo" style="width:100%;height:100%"><defs><linearGradient id="mRing" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B5BFF"/><stop offset="50%" stop-color="#8E3FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient><linearGradient id="mV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8E7FE8"/><stop offset="55%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/></linearGradient><radialGradient id="mBg" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#2A1B54"/><stop offset="100%" stop-color="#140B2B"/></radialGradient></defs><circle cx="50" cy="50" r="47" fill="url(#mBg)" stroke="url(#mRing)" stroke-width="5"/><path d="M28 30 L44 30 L50 58 L56 30 L72 30 L58 74 L42 74 Z" fill="url(#mV)"/></svg></span> VedhaNet Academy</a>
       <div class="navlinks" id="navlinks">
         <a href="#courses">F5 Courses</a>
-        <a href="#lab">Live Lab</a>
+        <a href="#lab">Free Labs</a>
+        <a href="#enterpriselab">Enterprise Lab</a>
         <a href="#buildlab">Build a Lab</a>
         <a href="#certification">Certification</a>
         <a href="#interview">Interview Prep</a>
@@ -290,7 +353,7 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a href="https://wa.me/919043214321" target="_blank" rel="noopener" class="btn btn-wa btn-sm">💬 WhatsApp</a>
+        <a href="https://wa.me/919345718526" target="_blank" rel="noopener" class="btn btn-wa btn-sm">💬 WhatsApp</a>
         <a href="#contact" class="btn btn-primary btn-sm">Book Free Demo</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
       </div>
@@ -307,82 +370,27 @@
       <div>
         <span class="eyebrow">F5 BIG-IP · LTM · GTM/DNS · APM · ASM/AWAF · Automation</span>
         <h1>Master F5 BIG-IP &amp; Network Automation — <span class="accent">on real labs</span>, not just slides.</h1>
-        <p class="lead">VedhaNet Academy is a Coimbatore-based training academy focused only on F5 BIG-IP and network automation — deep, hands-on, and built around production-style scenarios. Practice on our free live simulator, then go deeper in real BIG-IP VE labs.</p>
+        <p class="lead">VedhaNet Academy is a Coimbatore-based training academy focused only on F5 BIG-IP and network automation — deep, hands-on, and built around production-style scenarios. Practice free on our three browser simulators, then go deeper in real BIG-IP VE labs.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Book a Free Demo →</a>
-          <a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener" class="btn btn-outline">Try the Free Live Lab</a>
+          <a href="#lab" class="btn btn-outline">Try the 3 Free Labs</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><b>4 Modules</b><span>LTM · GTM/DNS · APM · ASM/AWAF</span></div>
-          <div class="stat"><b>1 Free Lab</b><span>Interactive load-balancing simulator</span></div>
+          <div class="stat"><b>LTM · GTM · ASM</b><span>Enterprise lab simulation</span></div>
+          <div class="stat"><b>3 Free Labs</b><span>Traffic · DNS · WAF simulators</span></div>
           <div class="stat"><b>100%</b><span>Hands-on, scenario-based</span></div>
           <div class="stat"><b>&lt;24 hrs</b><span>Response on every enquiry</span></div>
         </div>
       </div>
 
       <div class="hero-card">
-        <h4><span class="dot"></span> Live Topology · vs_VedhaNet_80</h4>
-        <svg class="topo-svg" viewBox="0 0 420 190" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="nodeClient" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#b8aef2"/>
-              <stop offset="45%" stop-color="#8E7FE8"/>
-              <stop offset="100%" stop-color="#4a3d99"/>
-            </radialGradient>
-            <radialGradient id="nodeVS" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#ffb3d4"/>
-              <stop offset="45%" stop-color="#EC4899"/>
-              <stop offset="100%" stop-color="#9c1c5c"/>
-            </radialGradient>
-            <linearGradient id="nodeWeb" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#322a5c"/>
-              <stop offset="100%" stop-color="#1b1733"/>
-            </linearGradient>
-            <radialGradient id="statusDot" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#baffce"/>
-              <stop offset="100%" stop-color="#22C55E"/>
-            </radialGradient>
-            <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur stdDeviation="2.2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-
-          <!-- fan lines: client -> virtual server -> web nodes -->
-          <path id="p1" d="M46,95 L148,95" fill="none" stroke="#c9bff7" stroke-width="1.5" opacity=".5"/>
-          <path id="p2" d="M164,88 L322,55" fill="none" stroke="#7fe4a8" stroke-width="1.4" opacity=".55"/>
-          <path id="p3" d="M164,95 L322,95" fill="none" stroke="#7fe4a8" stroke-width="1.4" opacity=".55"/>
-          <path id="p4" d="M164,102 L322,135" fill="none" stroke="#7fe4a8" stroke-width="1.4" opacity=".55"/>
-
-          <circle r="3.5" fill="#EC4899" class="pulse-dot" filter="url(#softGlow)"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
-          <circle r="3.2" fill="#22C55E" class="pulse-dot" filter="url(#softGlow)"><animateMotion dur="2.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
-          <circle r="3.2" fill="#22C55E" class="pulse-dot" filter="url(#softGlow)"><animateMotion dur="1.8s" begin="0.4s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
-          <circle r="3.2" fill="#22C55E" class="pulse-dot" filter="url(#softGlow)"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
-
-          <!-- Client sphere -->
-          <circle cx="34" cy="95" r="13" fill="url(#nodeClient)" stroke="#c9bff7" stroke-opacity=".5" stroke-width="1" filter="url(#softGlow)"/>
-          <circle cx="30" cy="90" r="3.5" fill="#ffffff" opacity=".55"/>
-          <text x="34" y="121" font-size="9" text-anchor="middle" fill="#cfc7f5" font-family="Inter" font-weight="600">Client</text>
-
-          <!-- Virtual server sphere -->
-          <circle cx="156" cy="95" r="16" fill="url(#nodeVS)" stroke="#ffd4e8" stroke-opacity=".5" stroke-width="1" filter="url(#softGlow)"/>
-          <circle cx="151" cy="89" r="4.2" fill="#ffffff" opacity=".6"/>
-          <text x="156" y="124" font-size="9" text-anchor="middle" fill="#cfc7f5" font-family="Inter" font-weight="600">Virtual Server</text>
-
-          <!-- Web pool nodes -->
-          <rect x="322" y="42" width="72" height="26" rx="7" fill="url(#nodeWeb)" stroke="#22C55E" stroke-width="1.1"/>
-          <circle cx="332" cy="55" r="3" fill="url(#statusDot)"/>
-          <text x="368" y="59" font-size="9" text-anchor="middle" fill="#eafff2" font-family="Inter" font-weight="700">WEB01</text>
-          <rect x="322" y="82" width="72" height="26" rx="7" fill="url(#nodeWeb)" stroke="#22C55E" stroke-width="1.1"/>
-          <circle cx="332" cy="95" r="3" fill="url(#statusDot)"/>
-          <text x="368" y="99" font-size="9" text-anchor="middle" fill="#eafff2" font-family="Inter" font-weight="700">WEB02</text>
-          <rect x="322" y="122" width="72" height="26" rx="7" fill="url(#nodeWeb)" stroke="#22C55E" stroke-width="1.1"/>
-          <circle cx="332" cy="135" r="3" fill="url(#statusDot)"/>
-          <text x="368" y="139" font-size="9" text-anchor="middle" fill="#eafff2" font-family="Inter" font-weight="700">WEB03</text>
-        </svg>
-        <div class="foot-row"><span>LB: round-robin</span><span>Monitor: HTTP · 5s</span></div>
+        <h4><span class="dot"></span> Live packet flow · shop.vedhanet.com</h4>
+        <div id="pkStage"></div>
+        <div class="pk-cap" id="pkCap"></div>
+        <div class="pk-dots" id="pkDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="foot-row"><span>GTM → ASM → LTM</span><span id="pkMode">clean request</span></div>
         <div class="hero-card-foot">
-          <a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener" class="btn btn-ghost-light btn-sm">Open Live Lab →</a>
+          <a href="#lab" class="btn btn-ghost-light btn-sm">Open the 3 free labs →</a>
         </div>
       </div>
     </div>
@@ -394,7 +402,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">What We Teach</span>
         <h2>Two subjects. Full depth. No filler.</h2>
-        <p>We dropped every unrelated topic so every hour of training goes toward F5 BIG-IP and the automation skills that make you faster and more valuable around it. <strong>114 topics across 20 modules</strong> — expand any track below to see the full syllabus.</p>
+        <p>We dropped every unrelated topic so every hour of training goes toward F5 BIG-IP and the automation skills that make you faster and more valuable around it.</p>
       </div>
 
       <div class="pillars-wrap">
@@ -425,159 +433,270 @@
           <div class="icon">🔀</div>
           <h4>F5 BIG-IP LTM</h4>
           <div class="subt">Local Traffic Manager</div>
-          <span class="topic-count">34 topics · 5 modules</span>
-          <div class="mod">
-            <div class="mod-title"><b>01</b> Platform &amp; Foundations</div>
-            <ul><li>TMOS architecture &amp; TMM</li><li>Hardware vs BIG-IP VE</li><li>Initial setup &amp; licensing</li><li>VLANs, self IPs &amp; floating IPs</li><li>Routing &amp; traffic flow</li></ul>
-          </div>
-          <div class="extra-topics">
-            <div class="mod">
-              <div class="mod-title"><b>02</b> Core Traffic Objects</div>
-              <ul><li>Nodes, pools &amp; members</li><li>Virtual server types</li><li>Load balancing methods</li><li>Priority group activation</li><li>Health monitors — HTTP/TCP/ICMP</li><li>Custom &amp; external monitors</li><li>Persistence profiles</li><li>SNAT, SNAT pools &amp; Automap</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>03</b> SSL &amp; Optimization</div>
-              <ul><li>SSL offload / bridging / passthrough</li><li>Client &amp; Server SSL profiles</li><li>Certificate &amp; key management</li><li>SNI — multi-cert VIPs</li><li>Certificate chain troubleshooting</li><li>OneConnect multiplexing</li><li>Compression &amp; caching</li><li>TCP profile tuning</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>04</b> iRules &amp; Traffic Policies</div>
-              <ul><li>Tcl syntax &amp; iRule event model</li><li>HTTP_REQUEST / HTTP_RESPONSE</li><li>Redirects &amp; header insertion</li><li>URL-based routing</li><li>Local Traffic Policies vs iRules</li><li>iRule logging &amp; debugging</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>05</b> HA, Ops &amp; Troubleshooting</div>
-              <ul><li>Active/Standby &amp; device groups</li><li>Config sync &amp; device trust</li><li>Failover testing &amp; drills</li><li>TMSH essential commands</li><li>tcpdump on BIG-IP</li><li>/var/log/ltm analysis</li><li>QKView &amp; iHealth</li></ul>
-            </div>
-          </div>
+          <ul><li>Architecture</li><li>Virtual servers</li><li>Pools &amp; nodes</li><li>Health monitors</li><li>Profiles &amp; SNAT</li></ul>
+          <div class="extra-topics"><ul><li>Persistence</li><li>SSL offloading</li><li>OneConnect</li><li>iRules basics</li><li>HA configuration</li><li>Troubleshooting</li></ul></div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🌐</div>
           <h4>F5 BIG-IP GTM / DNS</h4>
           <div class="subt">Global Traffic Manager</div>
-          <span class="topic-count">26 topics · 5 modules</span>
-          <div class="mod">
-            <div class="mod-title"><b>01</b> DNS &amp; GSLB Foundations</div>
-            <ul><li>DNS resolution refresher</li><li>Why GSLB exists</li><li>BIG-IP DNS architecture</li><li>Listeners &amp; DNS profiles</li><li>Data centers &amp; servers</li></ul>
-          </div>
-          <div class="extra-topics">
-            <div class="mod">
-              <div class="mod-title"><b>02</b> Wide-IPs &amp; Pools</div>
-              <ul><li>Wide-IP configuration</li><li>GTM pools &amp; members</li><li>Pool LB methods</li><li>Fallback &amp; alternate methods</li><li>Virtual server discovery</li><li>Wide-IP persistence</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>03</b> Monitoring &amp; Sync</div>
-              <ul><li>GTM health monitors</li><li>iQuery &amp; big3d</li><li>Sync groups &amp; config sync</li><li>Availability logic</li><li>Probe assignment</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>04</b> Topology &amp; Availability</div>
-              <ul><li>Topology records &amp; regions</li><li>Geolocation-based LB</li><li>Global failover design</li><li>Active-Active &amp; DR patterns</li><li>Manual resume &amp; limits</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>05</b> Troubleshooting</div>
-              <ul><li>dig / nslookup verification</li><li>GTM log analysis</li><li>iQuery connectivity issues</li><li>Wide-IP not resolving — RCA</li><li>Sync failure scenarios</li></ul>
-            </div>
-          </div>
+          <ul><li>DNS load balancing</li><li>Wide-IPs</li><li>Pools &amp; data centers</li><li>Monitors</li><li>Topology LB</li></ul>
+          <div class="extra-topics"><ul><li>iQuery &amp; sync groups</li><li>Global failover</li><li>Disaster recovery</li><li>DNS troubleshooting</li></ul></div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🔑</div>
           <h4>F5 BIG-IP APM</h4>
           <div class="subt">Access Policy Manager</div>
-          <span class="topic-count">26 topics · 5 modules</span>
-          <div class="mod">
-            <div class="mod-title"><b>01</b> Access Foundations</div>
-            <ul><li>APM architecture &amp; licensing</li><li>Access profiles &amp; policies</li><li>Visual Policy Editor (VPE)</li><li>Sessions &amp; session variables</li><li>Connectivity profiles</li></ul>
-          </div>
-          <div class="extra-topics">
-            <div class="mod">
-              <div class="mod-title"><b>02</b> Authentication &amp; SSO</div>
-              <ul><li>AD / LDAP authentication</li><li>RADIUS &amp; certificate auth</li><li>SAML IdP &amp; SP configuration</li><li>Kerberos &amp; NTLM SSO</li><li>OAuth / OIDC basics</li><li>MFA integration</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>03</b> Access Methods</div>
-              <ul><li>Network Access (SSL VPN)</li><li>Portal Access &amp; webtops</li><li>Application tunnels</li><li>Per-app VPN</li><li>Edge Client deployment</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>04</b> Policy Logic &amp; Security</div>
-              <ul><li>Per-request policies</li><li>Policy branching &amp; macros</li><li>Endpoint inspection &amp; posture</li><li>Access control lists</li><li>Session timeouts &amp; limits</li><li>Step-up authentication</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>05</b> Troubleshooting</div>
-              <ul><li>Session reports &amp; logs</li><li>VPE flow debugging</li><li>/var/log/apm analysis</li><li>Common SSO failures</li></ul>
-            </div>
-          </div>
+          <ul><li>Access policies</li><li>SSO &amp; authentication</li><li>AD / LDAP / SAML</li><li>MFA basics</li></ul>
+          <div class="extra-topics"><ul><li>VPN &amp; portal access</li><li>Per-request policy branching</li><li>Endpoint inspection</li><li>Troubleshooting</li></ul></div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
         <div class="course-card hud-box reveal">
           <div class="icon">🛡️</div>
           <h4>F5 BIG-IP ASM / AWAF</h4>
           <div class="subt">Advanced WAF</div>
-          <span class="topic-count">28 topics · 5 modules</span>
-          <div class="mod">
-            <div class="mod-title"><b>01</b> WAF Foundations</div>
-            <ul><li>L7 threat model — why WAF</li><li>ASM vs Advanced WAF licensing</li><li>Blocking vs transparent mode</li><li>Security policy types</li><li>Policy templates</li></ul>
-          </div>
-          <div class="extra-topics">
-            <div class="mod">
-              <div class="mod-title"><b>02</b> Policy Building</div>
-              <ul><li>Automatic vs manual building</li><li>Learning mode &amp; suggestions</li><li>URLs, parameters &amp; file types</li><li>Attack signatures &amp; signature sets</li><li>Staging &amp; enforcement readiness</li><li>Policy tuning workflow</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>03</b> Attack Protection</div>
-              <ul><li>OWASP Top 10 mapping</li><li>SQL injection &amp; XSS protection</li><li>CSRF protection</li><li>Brute-force protection</li><li>L7 DoS profiles</li><li>Bot defense &amp; device ID</li><li>IP intelligence</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>04</b> Advanced Controls</div>
-              <ul><li>Data Guard &amp; response scrubbing</li><li>Session tracking &amp; user ID</li><li>Login page enforcement</li><li>JSON / XML / API security</li><li>Cookie protection</li><li>Violation ratings &amp; thresholds</li></ul>
-            </div>
-            <div class="mod">
-              <div class="mod-title"><b>05</b> Operations</div>
-              <ul><li>Event logs &amp; request analysis</li><li>False-positive tuning</li><li>Reporting &amp; PCI compliance</li><li>Policy export / import &amp; versioning</li></ul>
-            </div>
-          </div>
+          <ul><li>Security policies</li><li>Attack signatures</li><li>Learning mode</li><li>Bot defense</li></ul>
+          <div class="extra-topics"><ul><li>OWASP Top 10 mapping</li><li>Brute-force &amp; DoS protection</li><li>Compliance templates</li><li>Logging &amp; reporting</li></ul></div>
           <button class="toggle-btn" onclick="toggleCard(this)">View full curriculum ▾</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LAB -->
-  <section class="section-tight" id="lab">
+  <!-- FREE SIMULATORS -->
+  <section class="section" id="lab">
     <div class="wrap">
-      <div class="lab-section reveal">
-        <div class="lab-grid">
-          <div>
-            <span class="eyebrow">Free · No Signup · Runs In Your Browser</span>
-            <h2>Learn on a real interactive BIG-IP lab — not just theory.</h2>
-            <p>Our free Traffic Lab simulator lets you switch load-balancing methods live and watch traffic move in real time, break a pool member and watch the health monitor react, and see the exact TMSH configuration your changes would produce.</p>
-            <ul class="lab-features">
-              <li>Live topology view: client → virtual server → pool members</li>
-              <li>Switch LB methods: Round Robin, Least Connections, Ratio, Observed, Predictive</li>
-              <li>Health monitors: ICMP, TCP, HTTP, HTTPS — with interval, timeout &amp; manual resume</li>
-              <li>Persistence, SNAT modes, priority group activation, connection inspector</li>
-              <li>11 guided fault scenarios + read-only TMSH reference that updates live</li>
-            </ul>
-            <div style="margin-top:14px">
-              <span class="scenario-chip">Round Robin keeps feeding a sick member</span>
-              <span class="scenario-chip">SNAT ports run out under load</span>
-              <span class="scenario-chip">Persisted client whose server just died</span>
-            </div>
-            <div class="hero-cta" style="margin-top:26px">
-              <a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener" class="btn btn-primary">Launch the Free Lab →</a>
-            </div>
+      <div class="section-head reveal">
+        <span class="eyebrow">3 Free Simulators · No Signup · ₹0</span>
+        <h2>Open a simulator and watch F5 actually behave.</h2>
+        <p>Reading about load balancing teaches you the words. These teach you the behaviour. Three browser labs — traffic, global DNS and web application firewall — all free, all live, nothing to install.</p>
+      </div>
+
+      <div class="sim-grid">
+
+        <!-- LTM / Traffic Lab -->
+        <div class="sim-card reveal">
+          <div class="sim-viz">
+            <span class="sim-free"><i></i> FREE</span>
+            <svg viewBox="0 0 300 132" role="img" aria-label="Traffic lab animation: client to virtual server to three app servers, one failing">
+              <defs><linearGradient id="vnG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22B8CF"/><stop offset="55%" stop-color="#8E7FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+              <rect x="10" y="49" width="52" height="34" rx="8" class="nbox"/>
+              <text x="36" y="70" text-anchor="middle" class="nlbl" style="font-size:9.5px">CLIENT</text>
+              <rect x="112" y="42" width="62" height="48" rx="9" class="nbox"/>
+              <text x="143" y="62" text-anchor="middle" class="nlbl" style="font-size:9.5px">BIG-IP</text>
+              <text x="143" y="76" text-anchor="middle" class="nsub" style="font-size:8px">virtual service</text>
+              <rect x="228" y="12" width="60" height="26" rx="7" class="nbox ok"/><text x="258" y="29" text-anchor="middle" class="nlbl" style="font-size:9px">APP 01</text>
+              <rect x="228" y="53" width="60" height="26" rx="7" class="nbox bad"/><text x="258" y="70" text-anchor="middle" class="nlbl" style="font-size:9px" fill="#ff9db3">APP 02</text>
+              <rect x="228" y="94" width="60" height="26" rx="7" class="nbox ok"/><text x="258" y="111" text-anchor="middle" class="nlbl" style="font-size:9px">APP 03</text>
+              <path class="w-hot" style="stroke:url(#vnG1)" d="M62 66 H112"/>
+              <path class="w-hot" style="stroke:url(#vnG1)" d="M174 66 C200 66 205 25 228 25"/>
+              <path class="w-dead" d="M174 66 H228"/>
+              <path class="w-hot" style="stroke:url(#vnG1)" d="M174 66 C200 66 205 107 228 107"/>
+              <line x1="203" y1="60" x2="215" y2="72" stroke="#F43F5E" stroke-width="1.8"/><line x1="215" y1="60" x2="203" y2="72" stroke="#F43F5E" stroke-width="1.8"/>
+              <circle r="3.2" fill="#22B8CF"><animateMotion dur="1.5s" repeatCount="indefinite" path="M62 66 H112"/></circle>
+              <circle r="3.2" fill="#EC4899"><animateMotion dur="1.5s" begin=".7s" repeatCount="indefinite" path="M62 66 H112"/></circle>
+              <circle r="3.2" fill="#8df0b4"><animateMotion dur="1.6s" repeatCount="indefinite" path="M174 66 C200 66 205 25 228 25"/></circle>
+              <circle r="3.2" fill="#8df0b4"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite" path="M174 66 C200 66 205 107 228 107"/></circle>
+            </svg>
           </div>
-          <div class="lab-mock">
-            <div class="row"><span>Virtual Server</span><b>192.168.100.177:80</b></div>
-            <div class="row"><span>LB Method</span><b>Round Robin</b></div>
-            <div class="row"><span>Monitor</span><b>HTTP · 5s / 1500ms</b></div>
-            <div class="row"><span>SNAT Mode</span><b>Automap</b></div>
-            <div class="row"><span>Persistence</span><b>Source Address</b></div>
-            <div class="row" style="border-bottom:none"><span>Missions completed</span><b>0 / 8</b></div>
+          <div class="sim-body">
+            <div class="k">TRAFFIC LAB · LTM</div>
+            <h3>Load balancing you can watch</h3>
+            <p class="sim-hook">Change the method and see traffic move. Kill a member and see the monitor catch it.</p>
+            <ul class="sim-list">
+              <li>Round Robin, Least Connections, Ratio, Observed, Predictive — switch live</li>
+              <li>Health monitors, persistence, SNAT modes and priority groups</li>
+              <li>Connection inspector plus a TMSH view that updates as you click</li>
+            </ul>
+            <a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener" class="btn btn-primary">Open Traffic Lab →</a>
           </div>
         </div>
+
+        <!-- GTM / DNS Lab -->
+        <div class="sim-card reveal">
+          <div class="sim-viz">
+            <span class="sim-free"><i></i> FREE</span>
+            <svg viewBox="0 0 300 132" role="img" aria-label="DNS lab animation: client queries global DNS which selects between two data centres">
+              <rect x="10" y="49" width="52" height="34" rx="8" class="nbox"/>
+              <text x="36" y="70" text-anchor="middle" class="nlbl" style="font-size:9.5px">CLIENT</text>
+              <circle cx="143" cy="66" r="27" class="nbox"/>
+              <path d="M116 66 H170 M143 39 C129 52 129 80 143 93 M143 39 C157 52 157 80 143 93" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+              <text x="143" y="108" text-anchor="middle" class="nsub" style="font-size:8px">global DNS</text>
+              <rect x="222" y="14" width="66" height="30" rx="8" class="nbox ok"/>
+              <text x="255" y="27" text-anchor="middle" class="nlbl" style="font-size:8.5px">DC 1</text><text x="255" y="38" text-anchor="middle" class="nsub" style="font-size:7.5px">answering</text>
+              <rect x="222" y="88" width="66" height="30" rx="8" class="nbox"/>
+              <text x="255" y="101" text-anchor="middle" class="nlbl" style="font-size:8.5px">DC 2</text><text x="255" y="112" text-anchor="middle" class="nsub" style="font-size:7.5px">standby</text>
+              <path class="w-hot" style="stroke:#8E7FE8" d="M62 66 H116"/>
+              <path class="w-hot" style="stroke:#22C55E" d="M170 66 C200 66 205 29 222 29"/>
+              <path class="w-idle" stroke-dasharray="3 5" d="M170 66 C200 66 205 103 222 103"/>
+              <circle r="3.2" fill="#22B8CF"><animateMotion dur="1.7s" repeatCount="indefinite" path="M62 66 H116"/></circle>
+              <circle r="3.2" fill="#8df0b4"><animateMotion dur="1.7s" begin=".5s" repeatCount="indefinite" path="M170 66 C200 66 205 29 222 29"/></circle>
+              <text x="150" y="128" text-anchor="middle" class="nsub" style="font-size:7.5px">TTL cached · 30s</text>
+            </svg>
+          </div>
+          <div class="sim-body">
+            <div class="k">DNS LAB · GTM / BIG-IP DNS</div>
+            <h3>Global load balancing you can see</h3>
+            <p class="sim-hook">Watch a data centre fail — and see why users keep hitting it anyway.</p>
+            <ul class="sim-list">
+              <li>Wide IPs, data centres and how a name gets resolved to a site</li>
+              <li>Topology routing — send each client to the site that fits</li>
+              <li>DNS TTL caching, the reason failover feels slower than it should</li>
+            </ul>
+            <a href="https://gtm.vedhanetacademy.com/" target="_blank" rel="noopener" class="btn btn-primary">Open DNS Lab →</a>
+          </div>
+        </div>
+
+        <!-- ASM / WAF Lab -->
+        <div class="sim-card reveal">
+          <div class="sim-viz">
+            <span class="sim-free"><i></i> FREE</span>
+            <svg viewBox="0 0 300 132" role="img" aria-label="WAF lab animation: clean request passes the firewall, attack request is stopped">
+              <rect x="8" y="18" width="62" height="28" rx="7" class="nbox ok"/><text x="39" y="36" text-anchor="middle" class="nlbl" style="font-size:8.5px">USER</text>
+              <rect x="8" y="86" width="62" height="28" rx="7" class="nbox bad"/><text x="39" y="104" text-anchor="middle" class="nlbl" style="font-size:8.5px" fill="#ff9db3">ATTACK</text>
+              <rect x="132" y="10" width="20" height="112" rx="10" fill="rgba(34,184,207,.10)" stroke="rgba(34,184,207,.55)"/>
+              <text x="142" y="66" text-anchor="middle" class="nbadge" fill="#9be8f5" transform="rotate(-90 142 66)">WAF POLICY</text>
+              <rect x="216" y="49" width="72" height="34" rx="8" class="nbox"/>
+              <text x="252" y="64" text-anchor="middle" class="nlbl" style="font-size:9px">APP</text><text x="252" y="76" text-anchor="middle" class="nsub" style="font-size:7.5px">protected</text>
+              <path class="w-hot" style="stroke:#22C55E" d="M70 32 C104 32 108 66 132 66"/>
+              <path class="w-hot" style="stroke:#22C55E" d="M152 66 H216"/>
+              <path class="w-dead" d="M70 100 C104 100 112 66 132 66"/>
+              <circle r="3.2" fill="#22C55E"><animateMotion dur="1.5s" repeatCount="indefinite" path="M70 32 C104 32 108 66 132 66"/></circle>
+              <circle r="3.2" fill="#22C55E"><animateMotion dur="1.4s" begin=".6s" repeatCount="indefinite" path="M152 66 H216"/></circle>
+              <circle r="3.6" fill="#F43F5E">
+                <animateMotion dur="1.8s" repeatCount="indefinite" path="M70 100 C104 100 112 66 128 66"/>
+                <animate attributeName="r" values="3.6;3.6;8;0" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;1;.7;0" dur="1.8s" repeatCount="indefinite"/>
+              </circle>
+              <text x="95" y="126" text-anchor="middle" class="nsub" style="font-size:7.5px" fill="#ff9db3">blocked + logged</text>
+            </svg>
+          </div>
+          <div class="sim-body">
+            <div class="k">WAF LAB · ASM / ADVANCED WAF</div>
+            <h3>Policy tuning, made visible</h3>
+            <p class="sim-hook">Why does a fully configured WAF block nothing? Watch mode and staging decide.</p>
+            <ul class="sim-list">
+              <li>Blocking versus transparent mode — the setting everyone gets wrong first</li>
+              <li>Signature staging, and why a staged signature never blocks</li>
+              <li>False positives and learning suggestions, handled the way you would in production</li>
+            </ul>
+            <a href="https://waf.vedhanetacademy.com/" target="_blank" rel="noopener" class="btn btn-primary">Open WAF Lab →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="sim-note">All three run in your browser — <b>no account, no download, no cost.</b></p>
+    </div>
+  </section>
+
+  <!-- ENTERPRISE LAB SIMULATION -->
+  <section class="section-tight" id="enterpriselab">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Enterprise Lab Simulation</span>
+        <h2>One environment. LTM, GTM and ASM working together.</h2>
+        <p>The simulators teach one layer at a time. Our training lab runs them as a company does — several business applications published through BIG-IP, a redundant pair, two data centres, and a web application firewall guarding the critical app. Pick a layer and watch it run.</p>
+      </div>
+
+      <div class="lab-section reveal" style="margin:0;padding:34px 30px">
+        <svg class="vn-mesh" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="rgba(142,127,232,.16)" stroke-width="1" fill="none">
+            <path d="M60 120 L280 210 L520 90 L760 240 L980 130 L1140 260"/>
+            <path d="M120 470 L340 380 L560 500 L820 360 L1060 470"/>
+            <path d="M280 210 L340 380 M520 90 L560 500 M760 240 L820 360 M980 130 L1060 470"/>
+          </g>
+          <g fill="rgba(142,127,232,.45)">
+            <circle cx="280" cy="210" r="3"><animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="520" cy="90" r="3"><animate attributeName="r" values="3;5.5;3" dur="4s" repeatCount="indefinite"/></circle>
+            <circle cx="760" cy="240" r="3"><animate attributeName="r" values="3;5;3" dur="3.4s" repeatCount="indefinite"/></circle>
+            <circle cx="560" cy="500" r="3"><animate attributeName="r" values="3;5;3" dur="4.6s" repeatCount="indefinite"/></circle>
+            <circle cx="1060" cy="470" r="3"><animate attributeName="r" values="3;5;3" dur="3.8s" repeatCount="indefinite"/></circle>
+          </g>
+        </svg>
+
+        <div class="vn-stage">
+          <div class="vn-bar">
+            <div class="vn-tabs" role="tablist" aria-label="Lab layers">
+              <button class="vn-tab" role="tab" aria-selected="true"  data-m="ltm">LTM · local traffic</button>
+              <button class="vn-tab" role="tab" aria-selected="false" data-m="gtm">GTM · global dns</button>
+              <button class="vn-tab" role="tab" aria-selected="false" data-m="asm">ASM · waf</button>
+              <button class="vn-tab" role="tab" aria-selected="false" data-m="tsh">troubleshooting</button>
+            </div>
+            <span class="vn-live"><i></i> simulation running</span>
+          </div>
+          <div class="vn-canvas" id="vnCanvas"></div>
+          <div class="vn-cap" id="vnCap"></div>
+          <div class="vn-chips" id="vnChips"></div>
+        </div>
+      </div>
+
+      <div class="vn-strip">
+        <span>redundant pair &amp; failover</span><span>two data centres</span><span>SSL offload &amp; re-encrypt</span>
+        <span>attack detect → block</span><span>fault isolation drills</span><span>AI-guided hints</span>
       </div>
     </div>
   </section>
+
+  <script>
+  (function(){
+    const NB=(x,y,w,h,cls,lbl,sub,badge,bcol)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" class="nbox ${cls}"/>`+
+      `<text x="${x+w/2}" y="${y+h/2-1}" text-anchor="middle" class="nlbl">${lbl}</text>`+
+      (sub?`<text x="${x+w/2}" y="${y+h/2+14}" text-anchor="middle" class="nsub">${sub}</text>`:'')+
+      (badge?`<text x="${x+w/2}" y="${y-8}" text-anchor="middle" class="nbadge" fill="${bcol}">${badge}</text>`:'');
+    const PK=(path,dur,delay,col,r)=>`<circle r="${r||4}" fill="${col}"><animateMotion dur="${dur}s" begin="${delay}s" repeatCount="indefinite" path="${path}"/><animate attributeName="opacity" values="0;1;1;0" dur="${dur}s" begin="${delay}s" repeatCount="indefinite"/></circle>`;
+    const SH=i=>`<svg viewBox="0 0 900 300" role="img"><defs><linearGradient id="vnGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22B8CF"/><stop offset="55%" stop-color="#8E7FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>${i}</svg>`;
+
+    const M={
+      ltm:{cap:'<b>Local traffic.</b> The client never talks to a server directly — it reaches one virtual service, which picks a healthy member and hands the session over. Here the middle member fails its health check, so the monitor pulls it out and traffic keeps flowing on the rest.',
+        chips:['virtual service','pool + monitor','SSL offload','persistence','iRules'],
+        svg:()=>SH(NB(30,120,110,60,'','CLIENT','browser')+NB(340,110,150,80,'','BIG-IP','virtual service + pool')+
+          NB(700,40,150,52,'ok','APP 01','healthy','UP','#22C55E')+NB(700,124,150,52,'bad','APP 02','monitor failed','DOWN','#F43F5E')+NB(700,208,150,52,'ok','APP 03','healthy','UP','#22C55E')+
+          '<path class="w-hot" d="M140 150 H340"/><path class="w-hot" d="M490 150 C560 150 580 66 700 66"/><path class="w-dead" d="M490 150 H700"/><path class="w-hot" d="M490 150 C560 150 580 234 700 234"/>'+
+          '<line x1="672" y1="140" x2="692" y2="160" stroke="#F43F5E" stroke-width="2"/><line x1="692" y1="140" x2="672" y2="160" stroke="#F43F5E" stroke-width="2"/>'+
+          PK('M140 150 H340',1.5,0,'#22B8CF')+PK('M140 150 H340',1.5,.5,'#8E7FE8')+PK('M140 150 H340',1.5,1,'#EC4899')+
+          PK('M490 150 C560 150 580 66 700 66',1.6,0,'#8df0b4')+PK('M490 150 C560 150 580 234 700 234',1.6,.8,'#8df0b4')+
+          '<text x="415" y="215" text-anchor="middle" class="nsub" fill="#8df0b4">monitor removed APP 02 — no client noticed</text>')},
+      gtm:{cap:'<b>Global DNS.</b> Before any traffic moves, the client asks for a name. Global DNS answers with the best live site — normally the primary data centre. Take that site down and the same name resolves to DR instead, so the application stays reachable.',
+        chips:['global name','two data centres','availability + topology','TTL caching','live failover'],
+        svg:()=>SH(NB(30,120,110,60,'','CLIENT','asks for name')+NB(300,110,160,80,'','GLOBAL DNS','picks the best site')+
+          NB(690,42,170,66,'ok','DATA CENTRE 1','primary · answering','ACTIVE','#22C55E')+NB(690,190,170,66,'','DATA CENTRE 2','DR · standing by','STANDBY','#F59E0B')+
+          '<path class="w-hot" d="M140 150 H300"/><path class="w-hot" d="M460 150 C560 150 580 75 690 75"/><path class="w-idle" stroke-dasharray="4 6" d="M460 150 C560 150 580 223 690 223"/>'+
+          PK('M140 150 H300',1.6,0,'#22B8CF')+PK('M140 150 H300',1.6,.7,'#8E7FE8')+PK('M460 150 C560 150 580 75 690 75',1.7,.2,'#8df0b4')+
+          '<text x="575" y="286" text-anchor="middle" class="nsub">failover demo: stop DC 1 and the same name answers with DC 2</text>')},
+      asm:{cap:'<b>Application security.</b> Two requests arrive at the same address. The normal one passes straight through. The injection attempt is inspected, matched against signatures and stopped at the firewall — logged in full, so you see exactly what tripped it.',
+        chips:['WAF policy','signatures','transparent → blocking','staging','attack logs'],
+        svg:()=>SH(NB(24,58,124,54,'ok','USER','normal request','LEGIT','#22C55E')+NB(24,190,124,54,'bad','ATTACKER','injection attempt','ATTACK','#F43F5E')+
+          '<rect x="368" y="46" width="26" height="208" rx="13" fill="rgba(34,184,207,.10)" stroke="rgba(34,184,207,.55)"/>'+
+          '<text x="381" y="158" text-anchor="middle" class="nbadge" fill="#9be8f5" transform="rotate(-90 381 158)">WEB APPLICATION FIREWALL</text>'+
+          NB(690,120,170,66,'','APPLICATION','protected app')+
+          '<path class="w-hot" d="M148 85 C260 85 280 153 368 153"/><path class="w-hot" d="M394 153 H690"/><path class="w-dead" d="M148 217 C260 217 300 153 368 153"/>'+
+          PK('M148 85 C260 85 280 153 368 153',1.5,0,'#22C55E')+PK('M394 153 H690',1.4,.6,'#22C55E')+
+          '<circle r="4.5" fill="#F43F5E"><animateMotion dur="1.8s" repeatCount="indefinite" path="M148 217 C260 217 300 153 360 153"/><animate attributeName="r" values="4.5;4.5;9;0" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;.7;0" dur="1.8s" repeatCount="indefinite"/></circle>'+
+          '<text x="240" y="252" text-anchor="middle" class="nsub" fill="#ff9db3">blocked and logged at the edge</text>'+
+          '<text x="545" y="120" text-anchor="middle" class="nsub" fill="#8df0b4">clean traffic passes</text>')},
+      tsh:{cap:'<b>Troubleshooting method.</b> When something breaks, guessing wastes the outage. We teach one fixed order — client, virtual service, pool, node — and walk it hop by hop until the failing layer names itself. Here the scan stops at the pool: no member is available, so the virtual service is fine and the fault sits behind it.',
+        chips:['fixed hop order','isolate before you fix','live packet capture','log reading','AI-guided hints'],
+        svg:()=>SH(NB(20,120,140,62,'ok','1 · CLIENT','reaches the address','OK','#22C55E')+NB(215,120,150,62,'ok','2 · VIRTUAL','listening, accepting','OK','#22C55E')+
+          NB(420,120,150,62,'bad','3 · POOL','no member available','FAULT','#F43F5E')+NB(625,120,150,62,'bad','4 · NODE','service not answering','FAULT','#F43F5E')+
+          '<path class="w-idle" d="M160 151 H215"/><path class="w-idle" d="M365 151 H420"/><path class="w-dead" d="M570 151 H625"/>'+
+          '<rect x="14" y="112" width="152" height="78" rx="12" fill="none" stroke="url(#vnGrad)" stroke-width="2"><animate attributeName="x" values="14;209;414;414;14" dur="6s" repeatCount="indefinite"/><animate attributeName="width" values="152;162;162;162;152" dur="6s" repeatCount="indefinite"/></rect>'+
+          '<text x="450" y="244" text-anchor="middle" class="nsub" fill="#9be8f5">the scan stops at the first failing hop — that is where you work</text>')}
+    };
+
+    const c=document.getElementById('vnCanvas'),p=document.getElementById('vnCap'),h=document.getElementById('vnChips');
+    if(!c) return;
+    function draw(k){const m=M[k];c.innerHTML=m.svg();p.innerHTML=m.cap;h.innerHTML=m.chips.map(x=>'<span class="vn-chip'+(x.indexOf('AI')===0?' ai':'')+'">'+x+'</span>').join('');}
+    document.querySelectorAll('.vn-tab').forEach(t=>t.addEventListener('click',function(){
+      document.querySelectorAll('.vn-tab').forEach(x=>x.setAttribute('aria-selected','false'));
+      t.setAttribute('aria-selected','true');draw(t.dataset.m);
+    }));
+    draw('ltm');
+  })();
+  </script>
+
 
   <!-- REAL LAB TRAINING + BUILD A LAB + INTERVIEW -->
   <section class="section" id="buildlab">
@@ -585,7 +704,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">Beyond The Simulator</span>
         <h2>Real BIG-IP labs, your own lab, and career support — all in one place.</h2>
-        <p>The free simulator gets you fluent in the concepts. These services take you the rest of the way — to production-ready and job-ready.</p>
+        <p>The free simulators get you fluent in the concepts. These services take you the rest of the way — to production-ready and job-ready.</p>
       </div>
 
       <div class="cards3 cards4">
@@ -644,11 +763,51 @@
   <section class="section-tight">
     <div class="wrap">
       <div class="trainer-grid">
-        <div class="reveal" style="text-align:center"><div class="trainer-photo"><img src="vedhanet-logo.png" alt="VedhaNet Academy"></div></div>
+        <div class="reveal" style="text-align:center"><div class="trainer-photo brand-badge"><svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VedhaNet Academy — F5 BIG-IP and network automation">
+  <defs>
+    <linearGradient id="bRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B5BFF"/><stop offset="50%" stop-color="#8E3FE8"/><stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="bV" x1="10%" y1="0%" x2="95%" y2="100%">
+      <stop offset="0%" stop-color="#8E7FE8"/><stop offset="52%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/>
+    </linearGradient>
+    <linearGradient id="bNet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/>
+    </linearGradient>
+    <radialGradient id="bBg" cx="50%" cy="36%" r="74%">
+      <stop offset="0%" stop-color="#2A1B54"/><stop offset="100%" stop-color="#120A26"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="192" fill="url(#bBg)" stroke="url(#bRing)" stroke-width="11"/>
+  <g stroke="rgba(142,127,232,.30)" stroke-width="1.2" fill="none">
+    <path d="M62 250 L104 288 L150 262 M250 300 L300 274 L336 300"/>
+    <path d="M70 140 L110 118 M300 120 L336 146"/>
+  </g>
+  <g fill="#8E7FE8" opacity=".65">
+    <circle cx="104" cy="288" r="3.4"><animate attributeName="opacity" values=".35;1;.35" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="300" cy="274" r="3.4"><animate attributeName="opacity" values="1;.35;1" dur="3.8s" repeatCount="indefinite"/></circle>
+    <circle cx="150" cy="262" r="2.6"/><circle cx="110" cy="118" r="2.6"/>
+    <circle cx="336" cy="146" r="3"><animate attributeName="opacity" values=".4;1;.4" dur="4.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g stroke="#8E7FE8" stroke-width="2.2" fill="none" opacity=".9">
+    <rect x="66" y="120" width="18" height="14" rx="3"/>
+    <rect x="44" y="164" width="18" height="14" rx="3"/><rect x="88" y="164" width="18" height="14" rx="3"/>
+    <path d="M75 134 V150 M53 164 V150 H97 V164"/>
+  </g>
+  <g stroke="#8E7FE8" stroke-width="2.2" fill="none" opacity=".9">
+    <path d="M306 156 a17 17 0 0 1 33 -4 a13 13 0 0 1 2 26 h-33 a13 13 0 0 1 -2 -22"/>
+  </g>
+  <path d="M118 96 L166 96 L200 190 L234 96 L282 96 L226 246 L174 246 Z" fill="url(#bV)"/>
+  <text x="200" y="300" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="52" fill="#ffffff">Vedha<tspan fill="url(#bNet)">Net</tspan></text>
+  <text x="200" y="336" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="600" font-size="25" letter-spacing="9" fill="#ffffff">ACADEMY</text>
+  <line x1="96" y1="352" x2="304" y2="352" stroke="url(#bRing)" stroke-width="2"/>
+  <circle cx="200" cy="352" r="4" fill="#EC4899"/>
+  <text x="200" y="372" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="700" font-size="13.5" letter-spacing="1.6" fill="#ffffff">F5 BIG-IP • NETWORK AUTOMATION</text>
+</svg></div></div>
         <div class="reveal">
           <span class="eyebrow">Why VedhaNet Academy</span>
           <h2 style="margin-top:14px;font-size:clamp(24px,3vw,32px)">Trained with a production mindset, not just a syllabus</h2>
-          <p style="color:var(--muted);margin-top:10px">Chelladurai V, Founder — focused only on F5 BIG-IP and network automation, so every session goes deep instead of wide.</p>
+          <p style="color:var(--muted);margin-top:10px">Focused only on F5 BIG-IP and network automation — so every session goes deep instead of wide.</p>
           <div class="expertise-pills">
             <span>F5 BIG-IP LTM</span><span>BIG-IP DNS (GTM)</span><span>BIG-IP ASM / AWAF</span><span>BIG-IP APM</span><span>Network Automation</span><span>Troubleshooting</span>
           </div>
@@ -659,7 +818,7 @@
             <li><span class="check">✓</span> Certification-mapped curriculum and mock exams</li>
             <li><span class="check">✓</span> Interview prep, resume review and ongoing job updates</li>
           </ul>
-          <blockquote>"The best investment you can make is in yourself. Keep learning. Keep growing." — Chelladurai V, Founder</blockquote>
+          <blockquote>"The best investment you can make is in yourself. Keep learning. Keep growing." — VedhaNet Academy</blockquote>
         </div>
       </div>
     </div>
@@ -704,15 +863,15 @@
 
       <div class="contact-grid">
         <div class="contact-info reveal">
-          <div class="info-card"><div class="info-icon">📞</div><div><h5>Call / WhatsApp</h5><a href="tel:+919043214321">+91 90432 14321</a></div></div>
+          <div class="info-card"><div class="info-icon">📞</div><div><h5>Call / WhatsApp</h5><a href="tel:+919345718526">+91 93457 18526</a></div></div>
           <div class="info-card"><div class="info-icon">✉️</div><div><h5>Email</h5><a href="mailto:info@vedhanetacademy.com">info@vedhanetacademy.com</a></div></div>
           <div class="info-card"><div class="info-icon">📍</div><div><h5>Location</h5><span class="val">Coimbatore, Tamil Nadu · Online worldwide</span></div></div>
-          <div class="info-card"><div class="info-icon">🧪</div><div><h5>Try before you enrol</h5><a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener">lab.vedhanetacademy.com</a></div></div>
+          <div class="info-card"><div class="info-icon">🧪</div><div><h5>Try before you enrol</h5><a href="#lab">3 free simulators — traffic, DNS &amp; WAF</a></div></div>
           <div class="qr-card">
-            <a href="https://wa.me/919043214321" target="_blank" rel="noopener">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&margin=6&data=https://wa.me/919043214321" alt="Scan to chat on WhatsApp" width="90" height="90">
+            <a href="https://wa.me/919345718526" target="_blank" rel="noopener">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&margin=6&data=https://wa.me/919345718526" alt="Scan to chat on WhatsApp" width="90" height="90">
             </a>
-            <div><h5 style="margin-bottom:4px">Scan to chat on WhatsApp</h5><span style="font-size:12.5px;color:var(--muted)">Any queries — scan or message <a href="https://wa.me/919043214321" target="_blank" rel="noopener" style="color:var(--purple-dark);font-weight:700">+91 90432 14321</a> directly.</span></div>
+            <div><h5 style="margin-bottom:4px">Scan to chat on WhatsApp</h5><span style="font-size:12.5px;color:var(--muted)">Any queries — scan or message <a href="https://wa.me/919345718526" target="_blank" rel="noopener" style="color:var(--purple-dark);font-weight:700">+91 93457 18526</a> directly.</span></div>
           </div>
           <div class="qr-card">
             <a href="https://whatsapp.com/channel/0029VbCixlu2ZjCf4vl8AH0c" target="_blank" rel="noopener">
@@ -753,7 +912,7 @@
 <footer>
   <div class="wrap foot-grid">
     <div>
-      <a href="#top" class="brand" style="color:#fff"><span class="mark"><img src="vedhanet-logo.png" alt="VedhaNet Academy logo"></span> VedhaNet Academy</a>
+      <a href="#top" class="brand" style="color:#fff"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VedhaNet Academy logo" style="width:100%;height:100%"><defs><linearGradient id="fRing" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B5BFF"/><stop offset="50%" stop-color="#8E3FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient><linearGradient id="fV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8E7FE8"/><stop offset="55%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/></linearGradient><radialGradient id="fBg" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#2A1B54"/><stop offset="100%" stop-color="#140B2B"/></radialGradient></defs><circle cx="50" cy="50" r="47" fill="url(#fBg)" stroke="url(#fRing)" stroke-width="5"/><path d="M28 30 L44 30 L50 58 L56 30 L72 30 L58 74 L42 74 Z" fill="url(#fV)"/></svg></span> VedhaNet Academy</a>
       <p style="margin-top:14px;font-size:13.5px;color:#a99fd6;max-width:280px">F5 BIG-IP and Network Automation training — real labs, certification prep, interview training and job updates. Coimbatore, India · Online worldwide.</p>
     </div>
     <div>
@@ -762,11 +921,11 @@
     </div>
     <div>
       <h5>Explore</h5>
-      <ul><li><a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener">Free Live Lab</a></li><li><a href="#buildlab">Build Your Own Lab</a></li><li><a href="#certification">Certification Prep</a></li><li><a href="#interview">Interview Prep</a></li><li><a href="#jobs">Job Updates</a></li></ul>
+      <ul><li><a href="https://lab.vedhanetacademy.com" target="_blank" rel="noopener">Free Traffic Lab</a></li><li><a href="https://gtm.vedhanetacademy.com/" target="_blank" rel="noopener">Free DNS Lab</a></li><li><a href="https://waf.vedhanetacademy.com/" target="_blank" rel="noopener">Free WAF Lab</a></li><li><a href="#enterpriselab">Enterprise Lab Simulation</a></li><li><a href="#buildlab">Build Your Own Lab</a></li><li><a href="#certification">Certification Prep</a></li><li><a href="#interview">Interview Prep</a></li><li><a href="#jobs">Job Updates</a></li></ul>
     </div>
     <div>
       <h5>Contact</h5>
-      <ul><li><a href="tel:+919043214321">+91 90432 14321</a></li><li><a href="mailto:info@vedhanetacademy.com">info@vedhanetacademy.com</a></li><li><a href="https://wa.me/919043214321" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="#contact">Book a Free Demo</a></li></ul>
+      <ul><li><a href="tel:+919345718526">+91 93457 18526</a></li><li><a href="mailto:info@vedhanetacademy.com">info@vedhanetacademy.com</a></li><li><a href="https://wa.me/919345718526" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="#contact">Book a Free Demo</a></li></ul>
     </div>
   </div>
   <div class="wrap foot-bottom">
@@ -776,7 +935,7 @@
   <p class="disclaimer">VedhaNet Academy is an independent training provider. F5®, BIG-IP®, LTM®, GTM®, APM® and ASM® are registered trademarks of F5, Inc. This site references them only to describe the platforms taught and is not affiliated with, endorsed by, or sponsored by F5, Inc. Our Traffic Lab simulator is an original teaching tool built independently by VedhaNet Academy and contains no vendor software or trademarked assets.</p>
 </footer>
 
-<a class="wa-float" href="https://wa.me/919043214321" target="_blank" rel="noopener" title="Chat on WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/919345718526" target="_blank" rel="noopener" title="Chat on WhatsApp">💬</a>
 
 <script>
   const navToggle = document.getElementById('navToggle');
@@ -852,5 +1011,95 @@
   })();
 </script>
 
+
+<script>
+(function(){
+  var stage=document.getElementById('pkStage'), cap=document.getElementById('pkCap'),
+      dots=document.getElementById('pkDots'), mode=document.getElementById('pkMode');
+  if(!stage) return;
+
+  function box(x,y,w,hh,lbl,sub,on,col){
+    var stroke = on ? (col||'#8E7FE8') : 'rgba(255,255,255,.20)';
+    var fill   = on ? 'rgba(142,127,232,.16)' : 'rgba(255,255,255,.045)';
+    if(on && col==='#F43F5E') fill='rgba(244,63,94,.16)';
+    if(on && col==='#22C55E') fill='rgba(34,197,94,.14)';
+    return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+hh+'" rx="9" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+(on?1.8:1.1)+'"/>'+
+      '<text x="'+(x+w/2)+'" y="'+(y+(sub?hh/2-2:hh/2+4))+'" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="'+(on?'#ffffff':'#c9c2ea')+'">'+lbl+'</text>'+
+      (sub?'<text x="'+(x+w/2)+'" y="'+(y+hh/2+11)+'" text-anchor="middle" font-family="Inter" font-size="8" fill="'+(on?'#d8d1f5':'#9d94c4')+'">'+sub+'</text>':'');
+  }
+  function pkt(path,col,lbl,dur){
+    return '<g><circle r="4.5" fill="'+col+'"/>'+
+      '<text x="0" y="-9" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="'+col+'">'+lbl+'</text>'+
+      '<animateMotion dur="'+dur+'s" repeatCount="indefinite" path="'+path+'"/></g>';
+  }
+  var P1='M76,100 C104,100 108,34 128,34',
+      P2='M128,46 C106,46 98,112 76,112',
+      P3='M76,122 C98,122 106,144 126,144',
+      A2='M252,144 C276,144 280,104 300,104',
+      A1='M252,144 C276,144 280,40 300,40',
+      RT='M300,104 C278,104 274,144 252,144 L126,144 C104,144 96,122 76,122';
+
+  function scene(o){
+    o=o||{};
+    var s='<svg class="topo-svg" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">';
+    s+='<path d="'+P1+'" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/>';
+    s+='<path d="'+P3+'" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/>';
+    s+='<path d="'+A1+'" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1.2"/>';
+    s+='<path d="'+A2+'" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1.2"/>';
+    s+='<path d="M252,144 C276,144 280,168 300,168" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1.2"/>';
+    s+=box(10,88,66,44,'CLIENT','browser',o.n==='c');
+    s+=box(128,14,104,40,'GTM','global dns',o.n==='g','#22B8CF');
+    // BIG-IP shell with two bands
+    s+='<rect x="126" y="112" width="126" height="66" rx="11" fill="rgba(255,255,255,.045)" stroke="'+((o.n==='w'||o.n==='l')?'#8E7FE8':'rgba(255,255,255,.20)')+'" stroke-width="'+((o.n==='w'||o.n==='l')?1.8:1.1)+'"/>';
+    s+='<text x="189" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#c9c2ea">BIG-IP</text>';
+    s+=box(134,131,110,20,'ASM · WAF','',o.n==='w',o.block?'#F43F5E':'#22C55E');
+    s+=box(134,154,110,20,'LTM · LOAD BALANCE','',o.n==='l','#8E7FE8');
+    s+=box(300,22,100,36,'APP 01','',o.hit===1,'#22C55E');
+    s+=box(300,86,100,36,'APP 02','',o.hit===2,'#22C55E');
+    s+=box(300,150,100,36,'APP 03','',o.hit===3,'#22C55E');
+    if(o.pkt) s+=o.pkt;
+    if(o.burst) s+='<circle cx="189" cy="141" r="6" fill="none" stroke="#F43F5E" stroke-width="2"><animate attributeName="r" values="6;26" dur="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.1s" repeatCount="indefinite"/></circle>';
+    if(o.scan) s+='<rect x="134" y="131" width="110" height="20" rx="6" fill="none" stroke="#22B8CF" stroke-width="1.6"><animate attributeName="opacity" values=".25;1;.25" dur="1s" repeatCount="indefinite"/></rect>';
+    return s+'</svg>';
+  }
+
+  var hit=2, attack=false, i=0;
+  function steps(){
+    var s=[
+      {n:'g', pkt:pkt(P1,'#22B8CF','DNS query',1.6),
+       cap:'<b>1 · DNS query.</b> The client asks where shop.vedhanet.com lives. GTM receives the query.'},
+      {n:'c', pkt:pkt(P2,'#8df0b4','A record',1.6),
+       cap:'<b>2 · GTM answers.</b> It checks which data centre is healthy and returns that site — not a fixed address.'},
+      {n:'w', pkt:pkt(P3,'#8E7FE8','TLS hello',1.6),
+       cap:'<b>3 · TLS handshake.</b> The client connects to the virtual service. BIG-IP presents the certificate and decrypts.'},
+      attack
+        ? {n:'w', block:true, burst:true,
+           cap:'<b>4 · WAF blocks it.</b> The request carries an injection payload. The signature matches, the request is stopped at the edge and logged in full.', warn:true}
+        : {n:'w', scan:true,
+           cap:'<b>4 · WAF inspects.</b> Headers, parameters and payload are checked against signatures. Clean — the request continues.'},
+      {n:'l', hit:hit, pkt:pkt(hit===1?A1:A2,'#EC4899','HTTP GET',1.5),
+       cap:'<b>5 · Load balancing.</b> LTM picks a member that passed its health check and forwards the session.'},
+      {n:'c', hit:hit, pkt:pkt(RT,'#8df0b4','HTTP 200',2.2),
+       cap:'<b>6 · Response.</b> The reply travels back through the same path — re-encrypted, and the client sees one clean answer.'}
+    ];
+    return s;
+  }
+
+  function tick(){
+    var arr=steps(), st=arr[i];
+    stage.innerHTML=scene(st);
+    cap.innerHTML=st.cap;
+    cap.className='pk-cap'+(st.warn?' warn':'');
+    mode.textContent=attack?'attack request':'clean request';
+    var d=dots.children;
+    for(var k=0;k<d.length;k++) d[k].className = k<=i ? (attack&&k>=3?'on bad':'on') : '';
+    if(attack && i===3){ i=0; attack=false; setTimeout(tick,2600); return; }
+    i++;
+    if(i>=arr.length){ i=0; attack=!attack; hit = hit===2?1:2; }
+    setTimeout(tick, st.burst?2600:2100);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
