@@ -22,7 +22,7 @@ export default async function BrowseCoursesPage() {
   const enrolledIds = new Set((enrollments ?? []).map((e) => e.course_id));
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen">
       <NavBar role={session.profile.role} fullName={session.profile.full_name} />
 
       <div className="mx-auto max-w-5xl px-6 py-10">

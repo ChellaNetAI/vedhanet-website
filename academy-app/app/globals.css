@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-a: #ede7fb;
+  --bg-b: #fce4f1;
+  --bg-c: #e7f0fe;
+  --ink: #1e1a33;
+  --muted: #6b6580;
+  --purple: #6d5bd0;
+  --purple-dark: #5643b8;
+  --pink: #ec4899;
+  --pink-dark: #d6317a;
+  --line: rgba(109, 91, 208, 0.18);
+}
+
 body {
-  background-color: #f7f8fa;
-  color: #111827;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle, rgba(109, 91, 208, 0.1) 1px, transparent 1.4px) 0 0/28px 28px,
+    linear-gradient(135deg, var(--bg-a), var(--bg-b) 55%, var(--bg-c));
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }

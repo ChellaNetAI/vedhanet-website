@@ -30,7 +30,7 @@ export default async function CourseDetailPage({
     .order("position", { ascending: true });
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen">
       <NavBar role={session.profile.role} fullName={session.profile.full_name} />
 
       <div className="mx-auto max-w-3xl px-6 py-10">
