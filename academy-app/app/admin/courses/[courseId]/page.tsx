@@ -71,7 +71,7 @@ export default async function ManageCoursePage({
               required
               className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm"
             />
-            <button className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+            <button className="rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110">
               Enroll
             </button>
           </form>
@@ -115,7 +115,7 @@ export default async function ManageCoursePage({
               defaultValue={(modules?.length ?? 0) + 1}
               className="w-20 rounded-lg border border-gray-300 px-3 py-2 text-sm"
             />
-            <button className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+            <button className="rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110">
               Add
             </button>
           </form>
@@ -200,7 +200,7 @@ export default async function ManageCoursePage({
                   <label className="flex items-center gap-2 text-xs text-gray-600">
                     <input type="checkbox" name="is_preview" /> Free preview (no enrollment needed)
                   </label>
-                  <button className="w-full rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+                  <button className="w-full rounded-lg bg-gradient-to-r from-brand to-accentpink px-3 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110">
                     Add lesson
                   </button>
                 </form>

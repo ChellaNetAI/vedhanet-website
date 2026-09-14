@@ -37,7 +37,7 @@ export default async function AdminPage() {
             />
             <button
               type="submit"
-              className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110"
             >
               Create course
             </button>

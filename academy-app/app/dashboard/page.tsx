@@ -30,7 +30,7 @@ export default async function DashboardPage() {
             <p className="text-gray-600">You&apos;re not enrolled in any course yet.</p>
             <Link
               href="/courses"
-              className="mt-4 inline-block rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110"
             >
               Browse courses
             </Link>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCurrentProfile } from "@/lib/auth";
+import { Logo } from "@/components/Logo";
 
 export default async function HomePage() {
   const session = await getCurrentProfile();
@@ -7,12 +8,15 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen">
       <header className="flex items-center justify-between px-6 py-5">
-        <span className="text-lg font-bold text-gray-900">VedhaNet Academy</span>
+        <span className="flex items-center gap-2.5 text-lg font-bold text-gray-900">
+          <Logo />
+          VedhaNet Academy
+        </span>
         <nav className="flex items-center gap-3 text-sm">
           {session ? (
             <Link
               href={session.profile.role === "admin" ? "/admin" : "/dashboard"}
-              className="rounded-lg bg-brand px-4 py-2 font-semibold text-white hover:bg-brand-dark"
+              className="rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110"
             >
               Go to my dashboard
             </Link>
@@ -23,7 +27,7 @@ export default async function HomePage() {
               </Link>
               <Link
                 href="/signup"
-                className="rounded-lg bg-brand px-4 py-2 font-semibold text-white hover:bg-brand-dark"
+                className="rounded-lg bg-gradient-to-r from-brand to-accentpink px-4 py-2 font-semibold text-white shadow-[0_0_24px_rgba(109,91,208,0.3)] transition hover:brightness-110"
               >
                 Sign up
               </Link>
