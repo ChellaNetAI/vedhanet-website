@@ -13,6 +13,7 @@ export interface Database {
           id: string;
           full_name: string | null;
           phone: string | null;
+          email: string | null;
           role: Role;
           created_at: string;
         };
@@ -20,6 +21,7 @@ export interface Database {
           id: string;
           full_name?: string | null;
           phone?: string | null;
+          email?: string | null;
           role?: Role;
           created_at?: string;
         };

@@ -69,8 +69,9 @@ in the nav bar and can create courses.
    to add a PDF.
 4. Back on the course list, click **Publish** so students can see it.
 
-Students sign up, go to **Browse**, and click **Enroll** (currently free/
-open enrollment — see "Adding payments" below to gate it).
+Students sign up on their own, then **you enroll them manually** after they
+pay you (see "How enrollment works" below) — there is no self-serve/free
+enrollment.
 
 ## 5. Deploy
 
@@ -99,12 +100,24 @@ is no public URL for them. When a student opens a lesson:
 So even a student who guesses a file's storage path can't fetch it directly
 — every request re-checks enrollment.
 
-## Known limitations / next steps
+## How enrollment works
 
-- **Enrollment is free/self-serve** right now (`enrollments_insert_self`
-  policy in `schema.sql`). To sell paid courses, wire up Razorpay: create
-  the order, verify the payment webhook server-side, and only then insert
-  the `enrollments` row (delete the self-serve policy once you do this).
+There is no self-serve/free enrollment — a student signing up only creates
+an account, it does not grant access to any course. To grant access:
+
+1. Student signs up on the site (creates their account) and pays you
+   however you already collect payment (UPI, bank transfer, cash).
+2. You open the course in **Admin**, and in the **"Enrolled students"** box
+   type their exact signup email, click **Enroll**.
+3. They can now see and watch that course. Click **"Remove access"** next
+   to their name to revoke it at any time (e.g. non-payment, refund).
+
+If you later want students to pay on the site itself instead of manually,
+wire up Razorpay: create the order, verify the payment webhook
+server-side, and call the same enrollment insert from that webhook instead
+of from the admin form.
+
+## Known limitations / next steps
 - **Video playback** uses a plain HTML5 `<video>` tag against Supabase
   Storage. This is fine for an MVP, but for very large libraries or to get
   adaptive-bitrate streaming and analytics, migrate lesson playback to a

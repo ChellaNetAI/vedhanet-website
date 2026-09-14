@@ -85,6 +85,50 @@ export async function createDocument(formData: FormData) {
   revalidatePath(`/admin/courses/${courseId}`);
 }
 
+export async function enrollStudent(formData: FormData) {
+  await requireAdmin();
+  const courseId = String(formData.get("course_id") ?? "");
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  if (!courseId || !email) return;
+
+  const admin = createAdminClient();
+  const { data: profile } = await admin
+    .from("profiles")
+    .select("id")
+    .eq("email", email)
+    .maybeSingle();
+
+  if (!profile) {
+    redirect(
+      `/admin/courses/${courseId}?error=${encodeURIComponent(
+        `No student found with email ${email}. They need to sign up first.`
+      )}`
+    );
+  }
+
+  const { error } = await admin
+    .from("enrollments")
+    .insert({ user_id: profile.id, course_id: courseId });
+
+  if (error && !error.message.includes("duplicate")) {
+    redirect(`/admin/courses/${courseId}?error=${encodeURIComponent(error.message)}`);
+  }
+
+  revalidatePath(`/admin/courses/${courseId}`);
+}
+
+export async function unenrollStudent(formData: FormData) {
+  await requireAdmin();
+  const courseId = String(formData.get("course_id") ?? "");
+  const enrollmentId = String(formData.get("enrollment_id") ?? "");
+  if (!courseId || !enrollmentId) return;
+
+  const admin = createAdminClient();
+  await admin.from("enrollments").delete().eq("id", enrollmentId);
+
+  revalidatePath(`/admin/courses/${courseId}`);
+}
+
 const ALLOWED_BUCKETS = ["videos", "shorts", "documents"] as const;
 type Bucket = (typeof ALLOWED_BUCKETS)[number];
 

@@ -3,14 +3,23 @@ import { requireAdmin } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/server";
 import { NavBar } from "@/components/NavBar";
 import { FileUploadField } from "@/components/FileUploadField";
-import { createModule, createLesson, createDocument } from "@/app/admin/actions";
+import {
+  createModule,
+  createLesson,
+  createDocument,
+  enrollStudent,
+  unenrollStudent,
+} from "@/app/admin/actions";
 
 export default async function ManageCoursePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ courseId: string }>;
+  searchParams: Promise<{ error?: string }>;
 }) {
   const { courseId } = await params;
+  const { error } = await searchParams;
   const session = await requireAdmin();
   const admin = createAdminClient();
 
@@ -28,6 +37,12 @@ export default async function ManageCoursePage({
     .eq("course_id", courseId)
     .order("position", { ascending: true });
 
+  const { data: enrollments } = await admin
+    .from("enrollments")
+    .select("id, created_at, profiles(full_name, email)")
+    .eq("course_id", courseId)
+    .order("created_at", { ascending: false });
+
   return (
     <main className="min-h-screen bg-gray-50">
       <NavBar role={session.profile.role} fullName={session.profile.full_name} />
@@ -35,6 +50,54 @@ export default async function ManageCoursePage({
       <div className="mx-auto max-w-3xl px-6 py-10">
         <h1 className="text-2xl font-semibold text-gray-900">{course.title}</h1>
         <p className="text-sm text-gray-500">Manage modules, lessons, shorts and documents.</p>
+
+        {error && (
+          <p className="mt-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
+        )}
+
+        <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5">
+          <h2 className="font-semibold text-gray-900">Enrolled students</h2>
+          <p className="mt-1 text-xs text-gray-500">
+            Once a student has paid you and signed up on the site, type their email here to give
+            them access. They must have already created an account (Sign up) before you can find
+            them.
+          </p>
+          <form action={enrollStudent} className="mt-3 flex gap-3">
+            <input type="hidden" name="course_id" value={course.id} />
+            <input
+              name="email"
+              type="email"
+              placeholder="student@example.com"
+              required
+              className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm"
+            />
+            <button className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+              Enroll
+            </button>
+          </form>
+
+          {enrollments && enrollments.length > 0 ? (
+            <ul className="mt-4 divide-y divide-gray-100">
+              {enrollments.map((e: any) => (
+                <li key={e.id} className="flex items-center justify-between py-2 text-sm">
+                  <span>
+                    {e.profiles?.full_name ?? "—"}{" "}
+                    <span className="text-gray-500">({e.profiles?.email ?? "unknown"})</span>
+                  </span>
+                  <form action={unenrollStudent}>
+                    <input type="hidden" name="course_id" value={course.id} />
+                    <input type="hidden" name="enrollment_id" value={e.id} />
+                    <button className="text-xs font-medium text-red-600 hover:underline">
+                      Remove access
+                    </button>
+                  </form>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-4 text-sm text-gray-400">No students enrolled yet.</p>
+          )}
+        </div>
 
         <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5">
           <h2 className="font-semibold text-gray-900">Add module</h2>

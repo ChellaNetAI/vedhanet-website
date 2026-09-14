@@ -10,22 +10,25 @@ create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   full_name text,
   phone text,
+  email text,
   role text not null default 'student' check (role in ('student', 'admin')),
   created_at timestamptz not null default now()
 );
 
 -- Auto-create a profile row whenever a new auth user signs up.
+-- Stores email on the profile so admins can look a student up to enroll them.
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
 security definer set search_path = public
 as $$
 begin
-  insert into public.profiles (id, full_name, phone)
+  insert into public.profiles (id, full_name, phone, email)
   values (
     new.id,
     new.raw_user_meta_data ->> 'full_name',
-    new.raw_user_meta_data ->> 'phone'
+    new.raw_user_meta_data ->> 'phone',
+    new.email
   );
   return new;
 end;
@@ -181,17 +184,12 @@ create policy "documents_select" on public.documents
 create policy "documents_write_admin" on public.documents
   for all using (public.is_admin()) with check (public.is_admin());
 
--- enrollments: users see their own; admins see/manage all
+-- enrollments: users see their own; only admins can grant/revoke access.
+-- (Enrollment is admin-only by design: the admin panel enrolls a student
+-- after payment is confirmed outside the app. There is deliberately no
+-- self-enroll policy here.)
 create policy "enrollments_select_own_or_admin" on public.enrollments
   for select using (user_id = auth.uid() or public.is_admin());
--- Students can self-enroll into any published course (open/free enrollment
--- for now). Swap this for a payment-verified server action once you add
--- paid courses, and drop this policy so enrollment can only happen there.
-create policy "enrollments_insert_self" on public.enrollments
-  for insert with check (
-    user_id = auth.uid()
-    and exists (select 1 from public.courses c where c.id = course_id and c.is_published)
-  );
 create policy "enrollments_admin_manage" on public.enrollments
   for update using (public.is_admin()) with check (public.is_admin());
 create policy "enrollments_admin_delete" on public.enrollments

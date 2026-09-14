@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { NavBar } from "@/components/NavBar";
-import { enroll } from "./actions";
 
 export default async function BrowseCoursesPage() {
   const session = await getCurrentProfile();
@@ -49,15 +48,9 @@ export default async function BrowseCoursesPage() {
                     Continue learning
                   </a>
                 ) : (
-                  <form action={enroll} className="mt-4">
-                    <input type="hidden" name="course_id" value={course.id} />
-                    <button
-                      type="submit"
-                      className="w-full rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
-                    >
-                      Enroll
-                    </button>
-                  </form>
+                  <p className="mt-4 rounded-lg bg-gray-100 px-3 py-2 text-center text-xs text-gray-500">
+                    Contact your trainer to enroll in this course
+                  </p>
                 )}
               </div>
             </div>
