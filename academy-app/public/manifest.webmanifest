@@ -1,0 +1,18 @@
+{
+  "name": "VedhaNet Academy",
+  "short_name": "VedhaNet",
+  "description": "F5 BIG-IP training videos, shorts and documents for VedhaNet Academy students.",
+  "start_url": "/dashboard",
+  "id": "/dashboard",
+  "display": "standalone",
+  "background_color": "#ede7fb",
+  "theme_color": "#6d5bd0",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

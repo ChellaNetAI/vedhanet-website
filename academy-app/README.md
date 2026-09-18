@@ -117,6 +117,25 @@ wire up Razorpay: create the order, verify the payment webhook
 server-side, and call the same enrollment insert from that webhook instead
 of from the admin form.
 
+## Installing as an app (iOS / Android)
+
+The site is a PWA (Progressive Web App): a student can install it to their
+phone's home screen and it opens full-screen, with its own icon, like a
+native app — no App Store or Play Store listing needed.
+
+- **Android (Chrome)**: menu (⋮) → "Add to Home screen" / "Install app".
+- **iPhone (Safari only — Chrome on iOS can't do this)**: Share button →
+  "Add to Home Screen".
+
+This is not a listing in the App Store or Play Store — it's the same
+website, installed. That's the right fit for a training academy at this
+stage: zero store fees, no review process, works identically on both
+platforms, and every update you ship (a new course, a bug fix) reaches
+installed users immediately, the next time they open it. A true native
+app (built with something like React Native or Capacitor, published to
+both stores) is a separate, much larger project — worth it only once you
+have meaningfully more scale than day-one.
+
 ## Known limitations / next steps
 - **Video playback** uses a plain HTML5 `<video>` tag against Supabase
   Storage. This is fine for an MVP, but for very large libraries or to get
