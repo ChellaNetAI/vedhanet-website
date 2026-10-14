@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and Conditions — VedhaNet Academy</title>
+<meta name="description" content="Terms and Conditions for VedhaNet Academy training courses, simulators and Practice Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-a:#EDE7FB; --bg-b:#FCE4F1; --bg-c:#E7F0FE;
+    --ink:#1E1A33; --muted:#6B6580; --muted-2:#8B84A0;
+    --purple:#6D5BD0; --purple-dark:#5643B8; --purple-light:#8E7FE8;
+    --pink:#EC4899; --pink-dark:#D6317A;
+    --cyan:#22B8CF; --green:#22C55E;
+    --dark:#120F1E; --dark-2:#1B1733; --dark-3:#241F45;
+    --card:#FFFFFF;
+    --line:rgba(109,91,208,.18);
+    --radius:18px;
+    --glow-purple:0 0 34px rgba(109,91,208,.35);
+    --glow-pink:0 0 30px rgba(236,72,153,.32);
+    --shadow-sm:0 1px 2px rgba(40,20,90,.06), 0 1px 4px rgba(40,20,90,.08);
+    --shadow-md:0 10px 30px rgba(70,30,140,.12);
+    --shadow-lg:0 28px 68px rgba(50,20,110,.20);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background:
+      radial-gradient(circle, rgba(109,91,208,.10) 1px, transparent 1.4px) 0 0/28px 28px,
+      linear-gradient(135deg, var(--bg-a), var(--bg-b) 55%, var(--bg-c));
+    background-attachment:fixed;
+  }
+  h1,h2,h3,h4,h5{font-family:'Space Grotesk',system-ui,sans-serif;color:var(--ink);letter-spacing:-0.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border-radius:9px;font-weight:700;font-size:13px;border:1px solid transparent;transition:all .18s ease;white-space:nowrap}
+  .btn-primary{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:var(--glow-purple)}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-2px)}
+  .btn-wa{background:#e9fbf0;color:#0d7a3f;border-color:#b7ecc9}
+  .btn-wa:hover{background:#1fb85a;color:#fff;border-color:#1fb85a}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;color:var(--ink);white-space:nowrap}
+  .brand .mark{width:38px;height:38px;border-radius:50%;overflow:hidden;display:flex;box-shadow:var(--glow-purple);flex-shrink:0;background:#0A0714}
+  .nav-cta{display:flex;gap:10px}
+  @media (max-width:560px){ .nav-cta .btn-wa{display:none} .brand{font-size:16px} }
+
+  .policy{max-width:860px;margin:48px auto 72px;padding:0 16px}
+  .policy-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:44px 48px}
+  @media (max-width:640px){ .policy{margin:28px auto 48px} .policy-card{padding:28px 20px} }
+  .eyebrow{display:inline-flex;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-dark);background:rgba(109,91,208,.10);padding:6px 14px;border-radius:999px;border:1px solid rgba(109,91,208,.18)}
+  .policy h1{font-size:clamp(28px,4vw,38px);line-height:1.2;margin:16px 0 6px}
+  .policy h1 .accent{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .updated{color:var(--muted-2);font-size:14px;margin-bottom:26px}
+  .policy h2{font-size:20px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .policy h3{font-size:17px;margin:0 0 6px}
+  .policy p{color:#3b3552;margin-bottom:12px;font-size:15.5px}
+  .policy ul{padding-left:22px;margin-bottom:12px}
+  .policy li{color:#3b3552;margin-bottom:7px;font-size:15.5px}
+  .policy li::marker{color:var(--purple)}
+  .policy a{color:var(--purple-dark);font-weight:600}
+  .policy a:hover{color:var(--pink-dark)}
+  .policy strong{color:var(--ink)}
+  .box{background:linear-gradient(135deg,rgba(109,91,208,.08),rgba(236,72,153,.06));border:1px solid var(--line);border-left:4px solid var(--purple);border-radius:12px;padding:16px 20px;margin:8px 0 22px;color:#3b3552;font-size:15.5px}
+  .table-wrap{overflow-x:auto;margin:12px 0 16px;border-radius:12px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:0}
+  th{background:var(--dark-2);color:#fff;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600}
+  td{color:#3b3552}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:22px 0 8px}
+  .grid .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+  .grid .card h3{color:var(--purple-dark);font-size:15px;margin-bottom:4px}
+  .grid .card p{margin:0}
+
+  footer{background:var(--dark);color:#c2b9e6;padding:40px 0 28px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8a80b8}
+  .disclaimer{max-width:1180px;margin:18px auto 0;padding:0 24px;font-size:11.5px;color:#75699e;line-height:1.6}
+
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <nav>
+      <a href="/" class="brand"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VedhaNet Academy logo" style="width:100%;height:100%"><defs><linearGradient id="mRing" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B5BFF"/><stop offset="50%" stop-color="#8E3FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient><linearGradient id="mV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8E7FE8"/><stop offset="55%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/></linearGradient><radialGradient id="mBg" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#2A1B54"/><stop offset="100%" stop-color="#140B2B"/></radialGradient></defs><circle cx="50" cy="50" r="47" fill="url(#mBg)" stroke="url(#mRing)" stroke-width="5"/><path d="M28 30 L44 30 L50 58 L56 30 L72 30 L58 74 L42 74 Z" fill="url(#mV)"/></svg></span> VedhaNet Academy</a>
+      <div class="nav-cta">
+        <a href="https://wa.me/919345718526" target="_blank" rel="noopener" class="btn btn-wa">💬 WhatsApp</a>
+        <a href="/" class="btn btn-primary">← Home</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="policy">
+<div class="policy-card">
+<span class="eyebrow">VedhaNet Academy · Legal</span>
+<h1>Terms and <span class="accent">Conditions</span></h1>
+<p class="updated">Last updated: 14 October 2026</p>
+
+<div class="box">
+VedhaNet Academy is owned and operated by <strong>Sridevi S</strong>, Madukkarai, Coimbatore, Tamil Nadu 641105, India.
+In these terms, "we", "us" and "VedhaNet Academy" mean the business. "You" means the student or person using our website, simulators or services.
+</div>
+
+<h2>1. What we offer</h2>
+<ul>
+  <li>Live online training in F5 BIG-IP (LTM, GTM/DNS, APM, ASM/Advanced WAF) and network automation.</li>
+  <li>Group batches and one-to-one (1:1) sessions.</li>
+  <li>Free browser simulators (Traffic Lab, DNS Lab, WAF Lab).</li>
+  <li>Paid Practice Lab access for a fixed period (usually 30 days).</li>
+  <li>Interview preparation, lab-setup guidance and certification preparation.</li>
+</ul>
+<p>All our services are delivered online. We do not ship any physical product.</p>
+
+<h2>2. Fees and payment</h2>
+<ul>
+  <li>Fees depend on the track and batch type (group or 1:1). We confirm your exact fee in writing (WhatsApp or email) before you pay.</li>
+  <li>Payments are collected through Razorpay, a secure payment gateway. We do not see or store your card, UPI or bank details.</li>
+  <li>Students outside India can pay by international card in the currency shown on the payment link.</li>
+  <li>Your enrolment or lab access starts only after the payment is successful.</li>
+  <li>Any bank, card or currency-conversion charges from your own bank are your responsibility.</li>
+</ul>
+
+<h2>3. Your account and access</h2>
+<ul>
+  <li>Course access, class links, recordings and lab logins are for you only. Do not share them with anyone.</li>
+  <li>If we find that access is shared, we may stop the access without a refund.</li>
+  <li>Practice Lab access is valid for the period stated at the time of payment. It ends automatically at the end of that period.</li>
+</ul>
+
+<h2>4. Class recordings and study material</h2>
+<ul>
+  <li>Recordings and class documents are provided for your personal learning.</li>
+  <li>You may not copy, resell, upload, publish or share our recordings, documents, labs or simulators in any form.</li>
+  <li>All content, designs and simulators on this website belong to VedhaNet Academy.</li>
+</ul>
+
+<h2>5. Student conduct</h2>
+<ul>
+  <li>Be respectful to the trainer and other students.</li>
+  <li>Do not use our labs or simulators to attack, scan or harm any system you do not own or have permission to test.</li>
+  <li>We may remove a student who breaks these rules, without a refund.</li>
+</ul>
+
+<h2>6. Schedule changes</h2>
+<p>We try to keep every class on time. Sometimes we may need to move a class. We will inform you in advance and give a new date or a recording. If we cancel a batch completely, our <a href="/refund-policy.html">Refund and Cancellation Policy</a> applies.</p>
+
+<h2>7. No job guarantee</h2>
+<p>Our training, interview preparation and job updates are meant to help you grow your skills and career. We do not guarantee a job, a salary or a certification result.</p>
+
+<h2>8. Trademarks</h2>
+<p>F5®, BIG-IP®, LTM®, GTM®, APM® and ASM® are registered trademarks of F5, Inc. VedhaNet Academy is an independent training provider and is not affiliated with, endorsed by or sponsored by F5, Inc. Our simulators are original teaching tools and contain no vendor software.</p>
+
+<h2>9. Limitation of liability</h2>
+<p>We provide our services with care, but we cannot promise that the website, simulators or labs will always be available without errors. Our total liability for any claim is limited to the fee you paid for the service in question.</p>
+
+<h2>10. Refunds</h2>
+<p>Refunds are handled as described in our <a href="/refund-policy.html">Refund and Cancellation Policy</a>.</p>
+
+<h2>11. Privacy</h2>
+<p>How we collect and use your details is explained in our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+
+<h2>12. Governing law</h2>
+<p>These terms are governed by the laws of India. Any dispute will be handled by the courts in Coimbatore, Tamil Nadu.</p>
+
+<h2>13. Changes to these terms</h2>
+<p>We may update these terms from time to time. The latest version will always be on this page with the updated date.</p>
+
+<h2>14. Contact</h2>
+<p>Email: <a href="mailto:info@vedhanetacademy.com">info@vedhanetacademy.com</a><br>
+WhatsApp / Phone: <a href="https://wa.me/919345718526">+91 93457 18526</a><br>
+Address: Madukkarai, Coimbatore, Tamil Nadu 641105, India</p>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <a href="/" class="brand" style="color:#fff"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VedhaNet Academy logo" style="width:100%;height:100%"><defs><linearGradient id="fRing" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B5BFF"/><stop offset="50%" stop-color="#8E3FE8"/><stop offset="100%" stop-color="#EC4899"/></linearGradient><linearGradient id="fV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8E7FE8"/><stop offset="55%" stop-color="#C13BE0"/><stop offset="100%" stop-color="#FF2E86"/></linearGradient><radialGradient id="fBg" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#2A1B54"/><stop offset="100%" stop-color="#140B2B"/></radialGradient></defs><circle cx="50" cy="50" r="47" fill="url(#fBg)" stroke="url(#fRing)" stroke-width="5"/><path d="M28 30 L44 30 L50 58 L56 30 L72 30 L58 74 L42 74 Z" fill="url(#fV)"/></svg></span> VedhaNet Academy</a>
+    <div class="foot-links">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/refund-policy.html">Refund &amp; Cancellation</a>
+      <a href="/shipping-policy.html">Shipping &amp; Delivery</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 VedhaNet Academy. Owned and operated by Sridevi S.</span>
+    <span>Madukkarai, Coimbatore, Tamil Nadu 641105, India</span>
+  </div>
+  <p class="disclaimer">VedhaNet Academy is an independent training provider. F5®, BIG-IP®, LTM®, GTM®, APM® and ASM® are registered trademarks of F5, Inc. This site references them only to describe the platforms taught and is not affiliated with, endorsed by, or sponsored by F5, Inc.</p>
+</footer>
+</body>
+</html>
